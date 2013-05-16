@@ -13,8 +13,11 @@ $(document).ready(function(){
 	setTimeout(function(){
 		$("#wrapper").animate({
 			top: "60px"
-		}, function(){
-			$("#wrapper").addClass("ready");
-		});
-	}, 1000);
+		},250);
+
+		$("#pull_to_refresh").animate({
+			opacity: "0"
+		},250);
+
+	}, 1500);
 });

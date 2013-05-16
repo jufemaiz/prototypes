@@ -21,14 +21,13 @@ html,body {
 
 #pull_to_refresh {
 	height: 60px;
-	background: aqua;
+	background: #999;
 	width: 100%;
 	text-align: center;
 	line-height: 60px;
-}
-
-.ready #pull_to_refresh{
-	opacity: 0;
+	color: #fff;
+	font-weight: bold;
+	font-family: arial;
 }
 
 #hidden_area {
@@ -37,7 +36,7 @@ html,body {
 	height: 0;
 	overflow: scroll !important;
 	box-sizing: border-box;
-	background: #dce3e7;
+	background: #323d43;
 	padding: 0;
 	list-style: none;
 	z-index: 999;
@@ -49,9 +48,23 @@ html,body {
 #hidden_area li {
 	height: 15px;
 	padding: 10px;
-	background: #2484e7;
+	background: #2f85b4;
 	color: #fff;
 	margin-bottom: 15px;
+}
+
+#hidden_area li:first-child {
+	margin-top: 15px;
+}
+
+#close {
+	line-height: 35px;
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+	height: 35px;
+	width: 100%;
+	background: #999;
 }
 
 #wrapper {
@@ -63,9 +76,4 @@ html,body {
 
 #content {
 	width: 100%;
-	background: gray;
-}
-
-button {
-	margin: 0 auto;
 }
