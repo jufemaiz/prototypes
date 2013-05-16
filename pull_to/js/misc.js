@@ -6,7 +6,6 @@ $(document).ready(function(){
 				height: $(window).height()-60,
 				opacity: 1
 			}, 250);
-
 		}
 	});
 
@@ -20,4 +19,8 @@ $(document).ready(function(){
 		},250);
 
 	}, 1500);
+
+	$('#hidden_area').on('touchmove',function(e){
+		e.stopImmediatePropagation();
+	});
 });

@@ -44,7 +44,8 @@
     status_indicator.css('display','block');
 
     // add the listener for the touchdown event, and set the initial values
-    document.body.addEventListener('touchstart', function(e) {
+    document.body.addEventListener('touchstart', touchstart_event);
+	function touchstart_event(e) {
       try {
         contentStartY = parseInt(content.css('top'));
       }
@@ -52,12 +53,14 @@
         contentStartY = 0;
       }
       startY = e.touches[0].screenY;
-    });
+	  console.log(startY);
+    }
 
     // this is where the magic happens, if we stop moving, we check
     // whether we haved moved enough, if so, we set a nice transition, and 
     // start the callback
-    document.body.addEventListener('touchend', function(e) {
+    document.body.addEventListener('touchend', touchend_event); 
+	function touchend_event(e) {
       if(refresh) {
         content.css('-webkit-transition-duration','.5s');
         content.css('top',0);
@@ -79,12 +82,13 @@
       }
 
       track = false;
-    });
+    }
 
     // on moving of the touch event, we move the diff down
     // unfortunately, for this to work, we need to prevent the default
     // behaviour, which means a broken bounce, any tips would be appreciated!
-    document.body.addEventListener('touchmove', function(e) {
+    document.body.addEventListener('touchmove',touchmove_event);
+	function touchmove_event(e) {
       e.preventDefault(); // <- bummer!
       var move_to = contentStartY - (startY - e.changedTouches[0].screenY);
       if(move_to > 0) track = true; // start tracking if near the top 
@@ -92,6 +96,7 @@
       percent = move_to / (status_indicator.height());
       $("#hidden_area").height(move_to).css("opacity",percent);
 
+removeEventListener('touchstart',touchstart_event)
       // have we pull the whole indicator down?
       if(move_to > status_indicator.height()) {
         refresh = true;
@@ -100,6 +105,6 @@
         content.css('-webkit-transition','');
         refresh = false;
       }
-    });
+    }
   }
 })(jQuery);
