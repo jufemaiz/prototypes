@@ -3,7 +3,6 @@ $(document).ready(function(){
 	wh = $(window).height();
 
 	ratioX = (ww-264) / ww;
-	ratioY = (wh)
 
 	$("#users").on("click", function(e) {
 		$("#main").addClass("effect").css({
