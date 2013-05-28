@@ -1,0 +1,83 @@
+/* line 1, ../scss/_base.scss */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: #fff;
+}
+
+/* line 8, ../scss/_base.scss */
+#wrapper {
+  background: red;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/* line 17, ../scss/_base.scss */
+header {
+  height: 64px;
+  background-color: green;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+/* line 28, ../scss/_base.scss */
+#main {
+  -webkit-transition-duration: 1s;
+  background: purple;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+/* line 37, ../scss/_base.scss */
+#main #names {
+  position: absolute;
+  top: 64px;
+  bottom: 64px;
+  width: 150px;
+  background: teal;
+}
+/* line 45, ../scss/_base.scss */
+#main #chat {
+  background-color: aqua;
+  position: absolute;
+  top: 64px;
+  right: 0;
+  bottom: 64px;
+  left: 150px;
+}
+/* line 54, ../scss/_base.scss */
+#main #msg {
+  position: absolute;
+  bottom: 0;
+  height: 64px;
+  width: 100%;
+  background-color: olive;
+}
+
+/* line 63, ../scss/_base.scss */
+#users {
+  position: absolute;
+  z-index: 998;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 200px;
+  display: block;
+  background-color: #2a8cf1;
+}
+
+/* line 74, ../scss/_base.scss */
+#main.effect {
+  -webkit-transform-origin: left;
+  -webkit-transform: scale3d(0.5, 0.5, 0);
+}

@@ -60,7 +60,7 @@ html,body {
 #close {
 	line-height: 35px;
 	text-align: center;
-	position: fixed;
+	position: absolute;
 	bottom: 0;
 	height: 35px;
 	width: 100%;

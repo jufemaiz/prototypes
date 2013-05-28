@@ -1,0 +1,78 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	background-color: #000;
+	color: #fff;
+}
+
+#wrapper {
+	background: red;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+header {
+	height: $bar;
+	background-color: green;
+	position: fixed;
+	z-index: 999;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+#main {
+	-webkit-transition-duration: 1s;
+	background: purple;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+
+	#names {
+		position: absolute;
+		top: $bar;
+		bottom: $bar;
+		width: $names_width;
+		background: teal;
+	}
+
+	#chat {
+		background-color: aqua;
+		position: absolute;
+		top: $bar;
+		right: 0;
+		bottom: $bar;
+		left: $names_width;
+	}
+
+	#msg {
+		position: absolute;
+		bottom: 0;
+		height: $bar;
+		width: 100%;
+		background-color: olive;
+	}
+}
+
+#users {
+	position: absolute;
+	z-index: 998;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: $users_width;
+	display: block;
+	background-color: $color;
+}
+
+#main.effect {
+
+	-webkit-transform-origin:  left;
+	-webkit-transform: scale3d(.5, .5, 0);
+}

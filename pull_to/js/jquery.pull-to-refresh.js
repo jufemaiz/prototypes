@@ -53,8 +53,18 @@
         contentStartY = 0;
       }
       startY = e.touches[0].screenY;
-	  console.log(startY);
     }
+
+function isScrolledIntoView(elem)
+{
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
+
+    var elemTop = $(elem).offset().top;
+    var elemBottom = elemTop + $(elem).height();
+
+    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
 
     // this is where the magic happens, if we stop moving, we check
     // whether we haved moved enough, if so, we set a nice transition, and 
@@ -62,12 +72,11 @@
     document.body.addEventListener('touchend', touchend_event); 
 	function touchend_event(e) {
       if(refresh) {
+		document.body.removeEventListener('touchmove',touchmove_event);
         content.css('-webkit-transition-duration','.5s');
         content.css('top',0);
         status_indicator.addClass(options.refresh_class);
-        options.refresh(function() { // pass down done callback
-          content.addEventListener('transitionEnd', removeTransition);
-        });
+        options.refresh(function() { });
 
         refresh = false;
       } else if(track) {
@@ -78,7 +87,6 @@
         content.css('-webkit-transition-duration','.25s');
         content.css('top','0');
 
-        content.addEventListener('transitionEnd', removeTransition);
       }
 
       track = false;
@@ -90,21 +98,33 @@
     document.body.addEventListener('touchmove',touchmove_event);
 	function touchmove_event(e) {
       e.preventDefault(); // <- bummer!
+
+	  if(isScrolledIntoView(".stop")) console.log("visible");
+
       var move_to = contentStartY - (startY - e.changedTouches[0].screenY);
       if(move_to > 0) track = true; // start tracking if near the top 
       content.css('top',move_to + 'px');
       percent = move_to / (status_indicator.height());
       $("#hidden_area").height(move_to).css("opacity",percent);
 
-removeEventListener('touchstart',touchstart_event)
       // have we pull the whole indicator down?
       if(move_to > status_indicator.height()) {
         refresh = true;
         status_indicator.addClass(options.visible_class)
+
+		document.body.removeEventListener('touchstart',touchstart_event);
       } else {
         content.css('-webkit-transition','');
         refresh = false;
       }
     }
+
+	$("#close").on("click", function(e) {
+		$("#hidden_area").animate({
+			height: 0,
+			opacity: 0
+		});
+	});
+
   }
 })(jQuery);

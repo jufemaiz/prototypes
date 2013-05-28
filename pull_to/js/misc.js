@@ -17,10 +17,5 @@ $(document).ready(function(){
 		$("#pull_to_refresh").animate({
 			opacity: "0"
 		},250);
-
 	}, 1500);
-
-	$('#hidden_area').on('touchmove',function(e){
-		e.stopImmediatePropagation();
-	});
 });
