@@ -27,6 +27,7 @@ function scale(id) {
 		$(this).css({
 			"-webkit-transform" : "translate3d(-"+move+"px, 0, 0)"
 		});
+
 		pane_order++;
 	});
 
@@ -43,5 +44,16 @@ $(document).ready(function(){
 	$("header a").on("click", function(e) {
 		$("#main").addClass("effect");
 		scale($(this).attr("data-id"));
+
+		$.blurjs("reset");
+		if(pane_order) {
+			$("#main").blurjs({
+				customClass: 'blurjs',
+				radius: pane_order,
+				persist: false
+			});
+		} else {
+			$("#main").attr("style","");
+		}
 	});
 });
