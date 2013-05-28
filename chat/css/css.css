@@ -42,6 +42,19 @@ header {
   left: 0;
 }
 /* line 40, ../scss/_base.scss */
+#main #overlay {
+  -webkit-transition-duration: 0.33s;
+  -webkit-animation-timing-function: ease-in;
+  height: 100%;
+  width: 100%;
+  display: none;
+  opacity: 0;
+  position: relative;
+  z-index: 998;
+  background-image: url("../images/overlay.png");
+  background-size: cover;
+}
+/* line 53, ../scss/_base.scss */
 #main #names {
   position: absolute;
   top: 64px;
@@ -49,7 +62,7 @@ header {
   width: 150px;
   background: teal;
 }
-/* line 48, ../scss/_base.scss */
+/* line 61, ../scss/_base.scss */
 #main #chat {
   background-color: aqua;
   position: absolute;
@@ -58,7 +71,7 @@ header {
   bottom: 64px;
   left: 150px;
 }
-/* line 57, ../scss/_base.scss */
+/* line 70, ../scss/_base.scss */
 #main #msg {
   position: absolute;
   bottom: 0;
@@ -67,7 +80,7 @@ header {
   background-color: olive;
 }
 
-/* line 66, ../scss/_base.scss */
+/* line 79, ../scss/_base.scss */
 .pane {
   -webkit-transition-duration: 0.33s;
   -webkit-animation-timing-function: ease-in;
@@ -76,34 +89,34 @@ header {
   bottom: 0;
   right: 0;
 }
-/* line 74, ../scss/_base.scss */
+/* line 87, ../scss/_base.scss */
 .pane[data-order="0"] {
   z-index: 998;
 }
-/* line 78, ../scss/_base.scss */
+/* line 91, ../scss/_base.scss */
 .pane[data-order="1"] {
   z-index: 997;
 }
-/* line 82, ../scss/_base.scss */
+/* line 95, ../scss/_base.scss */
 .pane[data-order="2"] {
   z-index: 996;
 }
 
-/* line 88, ../scss/_base.scss */
+/* line 101, ../scss/_base.scss */
 #users {
   -webkit-transform: translate3d(200px, 0, 0);
   width: 200px;
   background-color: #2a8cf1;
 }
 
-/* line 94, ../scss/_base.scss */
+/* line 107, ../scss/_base.scss */
 #settings {
   -webkit-transform: translate3d(300px, 0, 0);
   width: 300px;
   background-color: orange;
 }
 
-/* line 100, ../scss/_base.scss */
+/* line 113, ../scss/_base.scss */
 #rooms {
   -webkit-transform: translate3d(300px, 0, 0);
   width: 100px;

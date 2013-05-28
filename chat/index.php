@@ -17,6 +17,7 @@
 			</header>
 
 			<section id="main">
+				<aside id="overlay"></aside>
 				<article id="names"></article>
 				<article id="chat"><img src="images/test.png" /></article>
 				<article id="msg"></article>

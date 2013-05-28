@@ -52,8 +52,15 @@ $(document).ready(function(){
 				radius: pane_order,
 				persist: false
 			});
+
+			$("#overlay").show().animate({ opacity: pane_order*.25 });
 		} else {
 			$("#main").attr("style","");
+			$("#overlay").css("opacity","0");
+
+			setTimeout(function(){
+				$("#overlay").hide();
+			}, 333);
 		}
 	});
 });
