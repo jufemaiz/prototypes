@@ -27,7 +27,7 @@
             	if($('#blurjs-'+amt).length!=0){
             		$('#blurjs-'+amt).remove();
             	}
-                $('body').append('<svg id="blurjs-'+amt+'"><filter id="blur'+amt+'px"><feGaussianBlur in="SourceGraphic" stdDeviation="'+amt+'"></feGaussianBlur></filter></svg>');
+                $('#wrapper').append('<svg id="blurjs-'+amt+'"><filter id="blur'+amt+'px"><feGaussianBlur in="SourceGraphic" stdDeviation="'+amt+'"></feGaussianBlur></filter></svg>');
             }
 
             function css(cssClass, amt) {

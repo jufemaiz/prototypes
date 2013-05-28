@@ -14,9 +14,10 @@ html, body {
   right: 0;
   bottom: 0;
   left: 0;
+  overflow: hidden;
 }
 
-/* line 17, ../scss/_base.scss */
+/* line 18, ../scss/_base.scss */
 header {
   height: 64px;
   background-color: green;
@@ -28,7 +29,7 @@ header {
   left: 0;
 }
 
-/* line 28, ../scss/_base.scss */
+/* line 29, ../scss/_base.scss */
 #main {
   -webkit-transform-origin: left;
   -webkit-transition-duration: 0.33s;
@@ -40,7 +41,7 @@ header {
   bottom: 0;
   left: 0;
 }
-/* line 39, ../scss/_base.scss */
+/* line 40, ../scss/_base.scss */
 #main #names {
   position: absolute;
   top: 64px;
@@ -48,7 +49,7 @@ header {
   width: 150px;
   background: teal;
 }
-/* line 47, ../scss/_base.scss */
+/* line 48, ../scss/_base.scss */
 #main #chat {
   background-color: aqua;
   position: absolute;
@@ -57,7 +58,7 @@ header {
   bottom: 64px;
   left: 150px;
 }
-/* line 56, ../scss/_base.scss */
+/* line 57, ../scss/_base.scss */
 #main #msg {
   position: absolute;
   bottom: 0;
@@ -66,7 +67,7 @@ header {
   background-color: olive;
 }
 
-/* line 65, ../scss/_base.scss */
+/* line 66, ../scss/_base.scss */
 .pane {
   -webkit-transition-duration: 0.33s;
   -webkit-animation-timing-function: ease-in;
@@ -75,34 +76,34 @@ header {
   bottom: 0;
   right: 0;
 }
-/* line 73, ../scss/_base.scss */
+/* line 74, ../scss/_base.scss */
 .pane[data-order="0"] {
   z-index: 998;
 }
-/* line 77, ../scss/_base.scss */
+/* line 78, ../scss/_base.scss */
 .pane[data-order="1"] {
   z-index: 997;
 }
-/* line 81, ../scss/_base.scss */
+/* line 82, ../scss/_base.scss */
 .pane[data-order="2"] {
   z-index: 996;
 }
 
-/* line 86, ../scss/_base.scss */
+/* line 88, ../scss/_base.scss */
 #users {
   -webkit-transform: translate3d(200px, 0, 0);
   width: 200px;
   background-color: #2a8cf1;
 }
 
-/* line 92, ../scss/_base.scss */
+/* line 94, ../scss/_base.scss */
 #settings {
   -webkit-transform: translate3d(300px, 0, 0);
   width: 300px;
   background-color: orange;
 }
 
-/* line 98, ../scss/_base.scss */
+/* line 100, ../scss/_base.scss */
 #rooms {
   -webkit-transform: translate3d(300px, 0, 0);
   width: 100px;

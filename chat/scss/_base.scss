@@ -12,6 +12,7 @@ html, body {
 	right: 0;
 	bottom: 0;
 	left: 0;
+	overflow: hidden;
 }
 
 header {
@@ -81,6 +82,7 @@ header {
 	&[data-order="2"] {
 		z-index: 996;
 	}
+
 }
 
 #users {
