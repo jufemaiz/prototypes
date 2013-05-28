@@ -26,7 +26,9 @@ header {
 }
 
 #main {
-	-webkit-transition-duration: 1s;
+	-webkit-transform-origin: left;
+	-webkit-transition-duration: $duration;
+	-webkit-animation-timing-function: $ease;
 	background: purple;
 	position: absolute;
 	top: 0;
@@ -60,19 +62,41 @@ header {
 	}
 }
 
-#users {
+.pane {
+	-webkit-transition-duration: $duration;
+	-webkit-animation-timing-function: $ease;
 	position: absolute;
-	z-index: 998;
 	top: 0;
 	bottom: 0;
 	right: 0;
+
+	&[data-order="0"] {
+		z-index: 998;
+	}
+
+	&[data-order="1"] {
+		z-index: 997;
+	}
+
+	&[data-order="2"] {
+		z-index: 996;
+	}
+}
+
+#users {
+	-webkit-transform: translate3d($users_width,0,0);
 	width: $users_width;
-	display: block;
 	background-color: $color;
 }
 
-#main.effect {
+#settings {
+	-webkit-transform: translate3d($settings_width,0,0);
+	width: $settings_width;
+	background-color: orange;
+}
 
-	-webkit-transform-origin:  left;
-	-webkit-transform: scale3d(.5, .5, 0);
+#rooms {
+	-webkit-transform: translate3d($settings_width,0,0);
+	width: $rooms_width;
+	background-color: fuchsia;
 }

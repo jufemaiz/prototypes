@@ -30,7 +30,9 @@ header {
 
 /* line 28, ../scss/_base.scss */
 #main {
-  -webkit-transition-duration: 1s;
+  -webkit-transform-origin: left;
+  -webkit-transition-duration: 0.33s;
+  -webkit-animation-timing-function: ease-in;
   background: purple;
   position: absolute;
   top: 0;
@@ -38,7 +40,7 @@ header {
   bottom: 0;
   left: 0;
 }
-/* line 37, ../scss/_base.scss */
+/* line 39, ../scss/_base.scss */
 #main #names {
   position: absolute;
   top: 64px;
@@ -46,7 +48,7 @@ header {
   width: 150px;
   background: teal;
 }
-/* line 45, ../scss/_base.scss */
+/* line 47, ../scss/_base.scss */
 #main #chat {
   background-color: aqua;
   position: absolute;
@@ -55,7 +57,7 @@ header {
   bottom: 64px;
   left: 150px;
 }
-/* line 54, ../scss/_base.scss */
+/* line 56, ../scss/_base.scss */
 #main #msg {
   position: absolute;
   bottom: 0;
@@ -64,20 +66,45 @@ header {
   background-color: olive;
 }
 
-/* line 63, ../scss/_base.scss */
-#users {
+/* line 65, ../scss/_base.scss */
+.pane {
+  -webkit-transition-duration: 0.33s;
+  -webkit-animation-timing-function: ease-in;
   position: absolute;
-  z-index: 998;
   top: 0;
   bottom: 0;
   right: 0;
+}
+/* line 73, ../scss/_base.scss */
+.pane[data-order="0"] {
+  z-index: 998;
+}
+/* line 77, ../scss/_base.scss */
+.pane[data-order="1"] {
+  z-index: 997;
+}
+/* line 81, ../scss/_base.scss */
+.pane[data-order="2"] {
+  z-index: 996;
+}
+
+/* line 86, ../scss/_base.scss */
+#users {
+  -webkit-transform: translate3d(200px, 0, 0);
   width: 200px;
-  display: block;
   background-color: #2a8cf1;
 }
 
-/* line 74, ../scss/_base.scss */
-#main.effect {
-  -webkit-transform-origin: left;
-  -webkit-transform: scale3d(0.5, 0.5, 0);
+/* line 92, ../scss/_base.scss */
+#settings {
+  -webkit-transform: translate3d(300px, 0, 0);
+  width: 300px;
+  background-color: orange;
+}
+
+/* line 98, ../scss/_base.scss */
+#rooms {
+  -webkit-transform: translate3d(300px, 0, 0);
+  width: 100px;
+  background-color: fuchsia;
 }

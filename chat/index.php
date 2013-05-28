@@ -9,7 +9,11 @@
 	<body>
 
 		<div id="wrapper">
-			<header></header>
+			<header>
+				<a href="#" data-id="users">Users</a>
+				<a href="#" data-id="settings">Settings</a>
+				<a href="#" data-id="rooms">Rooms</a>
+			</header>
 
 			<section id="main">
 				<article id="names"></article>
@@ -17,7 +21,9 @@
 				<article id="msg"></article>
 			</section>
 
-			<section id="users"></section>
+			<section id="users" class="pane"></section>
+			<section id="settings" class="pane"></section>
+			<section id="rooms" class="pane"></section>
 		</div>
 
 	</body>
