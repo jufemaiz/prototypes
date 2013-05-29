@@ -6,7 +6,7 @@ html, body {
 }
 
 #wrapper {
-	background: red;
+	background: rgba($color, .25);
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -16,21 +16,33 @@ html, body {
 }
 
 header {
+	-webkit-transition-duration: $duration;
+	-webkit-animation-timing-function: $ease;
 	height: $bar;
-	background-color: green;
+	background-color: $color;
 	position: fixed;
-	z-index: 999;
+	z-index: 990;
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
+
+	&.opac {
+		background-color: rgba($color, .35);
+	}
+}
+
+.content {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 100%;
 }
 
 #main {
 	-webkit-transform-origin: left;
 	-webkit-transition-duration: $duration;
 	-webkit-animation-timing-function: $ease;
-	background: purple;
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -40,11 +52,13 @@ header {
 	#overlay {
 		-webkit-transition-duration: $duration;
 		-webkit-animation-timing-function: $ease;
-		height: 100%;
-		width: 100%;
 		display: none;
 		opacity: 0;
 		position: relative;
+		top: $bar;
+		right: 0;
+		bottom: 0;
+		left: 0;
 		z-index: 998;
 		background-image: url("../images/overlay.png");
 		background-size: cover;
@@ -55,11 +69,15 @@ header {
 		top: $bar;
 		bottom: $bar;
 		width: $names_width;
-		background: teal;
+		background-color: #000;
+		
+		.content {
+			background-color: rgba($color, .93);
+		}
 	}
 
 	#chat {
-		background-color: aqua;
+		background-color: $color;
 		position: absolute;
 		top: $bar;
 		right: 0;
@@ -72,13 +90,19 @@ header {
 		bottom: 0;
 		height: $bar;
 		width: 100%;
-		background-color: olive;
+		background-color: #000;
+
+		.content {
+			background-color: rgba($color, .72)
+		}
 	}
 }
 
 .pane {
+	box-sizing: border-box;
 	-webkit-transition-duration: $duration;
 	-webkit-animation-timing-function: $ease;
+	background-color: #000;
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -90,10 +114,23 @@ header {
 
 	&[data-order="1"] {
 		z-index: 997;
+		border-right: 1px solid darken($color, 22%);
 	}
 
 	&[data-order="2"] {
 		z-index: 996;
+		border-right: 1px solid darken($color, 22%);
+	}
+
+	.title {
+		height: $bar;
+		width: 100%;
+		background-color: rgba($color, .72);
+	}
+
+	.content {
+		background-color: $color;
+		top: $bar;
 	}
 
 }
@@ -101,17 +138,14 @@ header {
 #users {
 	-webkit-transform: translate3d($users_width,0,0);
 	width: $users_width;
-	background-color: $color;
 }
 
 #settings {
 	-webkit-transform: translate3d($settings_width,0,0);
 	width: $settings_width;
-	background-color: orange;
 }
 
 #rooms {
 	-webkit-transform: translate3d($settings_width,0,0);
 	width: $rooms_width;
-	background-color: fuchsia;
 }

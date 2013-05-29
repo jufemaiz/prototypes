@@ -1,4 +1,4 @@
-var ww, wh, pane_size, margin = 32, pane_order; //header height / 2
+var ww, wh, pane_size, margin = 32, pane_order, duration = 333;
 
 function resize() {
 	ww = $(window).width();
@@ -42,6 +42,7 @@ function scale(id) {
 $(document).ready(function(){
 
 	$("header a").on("click", function(e) {
+		$("header").addClass("opac");
 		$("#main").addClass("effect");
 		scale($(this).attr("data-id"));
 
@@ -55,12 +56,13 @@ $(document).ready(function(){
 
 			$("#overlay").show().animate({ opacity: pane_order*.25 });
 		} else {
-			$("#main").attr("style","");
+			$("header").removeClass("opac");
+			$("#main").attr("style","").removeClass("effect");
 			$("#overlay").css("opacity","0");
 
 			setTimeout(function(){
 				$("#overlay").hide();
-			}, 333);
+			}, duration);
 		}
 	});
 });

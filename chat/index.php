@@ -18,14 +18,33 @@
 
 			<section id="main">
 				<aside id="overlay"></aside>
-				<article id="names"></article>
-				<article id="chat"><img src="images/test.png" /></article>
-				<article id="msg"></article>
+				<article id="names">
+					<aside class="content"></aside>
+				</article>
+
+				<article id="chat">
+					<aside class="content"></aside>
+				</article>
+
+				<article id="msg">
+					<aside class="content"></aside>
+				</article>
 			</section>
 
-			<section id="users" class="pane"></section>
-			<section id="settings" class="pane"></section>
-			<section id="rooms" class="pane"></section>
+			<section id="users" class="pane">
+				<aside class="title">Users</aside>
+				<aside class="content"></aside>
+			</section>
+
+			<section id="settings" class="pane">
+				<aside class="title">Settings</aside>
+				<aside class="content"></aside>
+			</section>
+
+			<section id="rooms" class="pane">
+				<aside class="title">Rooms</aside>
+				<aside class="content"></aside>
+			</section>
 		</div>
 
 	</body>
