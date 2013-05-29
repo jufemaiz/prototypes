@@ -4,11 +4,46 @@ html, body {
   padding: 0;
   background-color: #000;
   color: #fff;
+  font-size: 14px;
+  line-height: 1.5em;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -moz-hyphens: auto;
+  hyphens: auto;
+  text-rendering: optimizeLegibility;
+  -webkit-font-feature-settings: 'liga', 'dlig';
+  -moz-font-feature-settings: 'liga', 'dlig';
+  font-feature-settings: 'liga', 'dlig';
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 }
 
-/* line 8, ../scss/_base.scss */
+/* line 20, ../scss/_base.scss */
+input, textarea {
+  box-sizing: border-box;
+  padding: 8px 16px;
+  height: 100%;
+  background: transparent;
+  color: #fff;
+  -webkit-appearance: none;
+  border: none;
+  outline: none;
+  width: 100%;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -moz-hyphens: auto;
+  hyphens: auto;
+  text-rendering: optimizeLegibility;
+  -webkit-font-feature-settings: 'liga', 'dlig';
+  -moz-font-feature-settings: 'liga', 'dlig';
+  font-feature-settings: 'liga', 'dlig';
+  -webkit-font-smoothing: antialiased;
+}
+
+/* line 43, ../scss/_base.scss */
 #wrapper {
-  background: rgba(46, 142, 241, 0.25);
+  background: rgba(42, 140, 241, 0.25);
   position: absolute;
   top: 0;
   right: 0;
@@ -17,25 +52,27 @@ html, body {
   overflow: hidden;
 }
 
-/* line 18, ../scss/_base.scss */
+/* line 53, ../scss/_base.scss */
 header {
   -webkit-transition-duration: 0.33s;
   -webkit-animation-timing-function: ease-in;
   height: 64px;
-  background-color: #2e8ef1;
+  background-color: #2a8cf1;
   position: fixed;
   z-index: 990;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  border-bottom: 1px solid #127fef;
 }
-/* line 30, ../scss/_base.scss */
+/* line 66, ../scss/_base.scss */
 header.opac {
-  background-color: rgba(46, 142, 241, 0.35);
+  background-color: rgba(42, 140, 241, 0.35);
+  border-bottom-color: transparent;
 }
 
-/* line 35, ../scss/_base.scss */
+/* line 72, ../scss/_base.scss */
 .content {
   position: absolute;
   top: 0;
@@ -43,7 +80,7 @@ header.opac {
   width: 100%;
 }
 
-/* line 42, ../scss/_base.scss */
+/* line 79, ../scss/_base.scss */
 #main {
   -webkit-transform-origin: left;
   -webkit-transition-duration: 0.33s;
@@ -54,13 +91,13 @@ header.opac {
   bottom: 0;
   left: 0;
 }
-/* line 52, ../scss/_base.scss */
+/* line 89, ../scss/_base.scss */
 #main #overlay {
   -webkit-transition-duration: 0.33s;
   -webkit-animation-timing-function: ease-in;
   display: none;
   opacity: 0;
-  position: relative;
+  position: absolute;
   top: 64px;
   right: 0;
   bottom: 0;
@@ -68,8 +105,9 @@ header.opac {
   z-index: 998;
   background-image: url("../images/overlay.png");
   background-size: cover;
+  background-position: center;
 }
-/* line 67, ../scss/_base.scss */
+/* line 105, ../scss/_base.scss */
 #main #names {
   position: absolute;
   top: 64px;
@@ -77,20 +115,20 @@ header.opac {
   width: 150px;
   background-color: #000;
 }
-/* line 74, ../scss/_base.scss */
+/* line 112, ../scss/_base.scss */
 #main #names .content {
-  background-color: rgba(46, 142, 241, 0.93);
+  background-color: rgba(42, 140, 241, 0.93);
 }
-/* line 79, ../scss/_base.scss */
+/* line 117, ../scss/_base.scss */
 #main #chat {
-  background-color: #2e8ef1;
+  background-color: #2a8cf1;
   position: absolute;
   top: 64px;
   right: 0;
   bottom: 64px;
   left: 150px;
 }
-/* line 88, ../scss/_base.scss */
+/* line 126, ../scss/_base.scss */
 #main #msg {
   position: absolute;
   bottom: 0;
@@ -98,12 +136,16 @@ header.opac {
   width: 100%;
   background-color: #000;
 }
-/* line 95, ../scss/_base.scss */
+/* line 133, ../scss/_base.scss */
 #main #msg .content {
-  background-color: rgba(46, 142, 241, 0.72);
+  background-color: rgba(42, 140, 241, 0.72);
+}
+/* line 136, ../scss/_base.scss */
+#main #msg .content input {
+  font-size: 1.25em;
 }
 
-/* line 101, ../scss/_base.scss */
+/* line 143, ../scss/_base.scss */
 .pane {
   box-sizing: border-box;
   -webkit-transition-duration: 0.33s;
@@ -114,45 +156,45 @@ header.opac {
   bottom: 0;
   right: 0;
 }
-/* line 111, ../scss/_base.scss */
+/* line 153, ../scss/_base.scss */
 .pane[data-order="0"] {
   z-index: 998;
 }
-/* line 115, ../scss/_base.scss */
+/* line 157, ../scss/_base.scss */
 .pane[data-order="1"] {
   z-index: 997;
-  border-right: 1px solid #0b56a4;
+  border-right: 1px solid #0b54a0;
 }
-/* line 120, ../scss/_base.scss */
+/* line 162, ../scss/_base.scss */
 .pane[data-order="2"] {
   z-index: 996;
-  border-right: 1px solid #0b56a4;
+  border-right: 1px solid #0b54a0;
 }
-/* line 125, ../scss/_base.scss */
+/* line 167, ../scss/_base.scss */
 .pane .title {
   height: 64px;
   width: 100%;
-  background-color: rgba(46, 142, 241, 0.72);
+  background-color: rgba(42, 140, 241, 0.72);
 }
-/* line 131, ../scss/_base.scss */
+/* line 173, ../scss/_base.scss */
 .pane .content {
-  background-color: #2e8ef1;
+  background-color: #2a8cf1;
   top: 64px;
 }
 
-/* line 138, ../scss/_base.scss */
+/* line 180, ../scss/_base.scss */
 #users {
   -webkit-transform: translate3d(200px, 0, 0);
   width: 200px;
 }
 
-/* line 143, ../scss/_base.scss */
+/* line 185, ../scss/_base.scss */
 #settings {
   -webkit-transform: translate3d(300px, 0, 0);
   width: 300px;
 }
 
-/* line 148, ../scss/_base.scss */
+/* line 190, ../scss/_base.scss */
 #rooms {
   -webkit-transform: translate3d(300px, 0, 0);
   width: 100px;

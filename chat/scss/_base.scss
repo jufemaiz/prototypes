@@ -3,6 +3,41 @@ html, body {
 	padding: 0;
 	background-color: #000;
 	color: #fff;
+	font-size: 14px;
+	line-height: 1.5em;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	-moz-hyphens: auto;
+	hyphens: auto;
+	text-rendering: optimizeLegibility;
+	-webkit-font-feature-settings: 'liga', 'dlig';
+	-moz-font-feature-settings: 'liga', 'dlig';
+	font-feature-settings: 'liga', 'dlig';
+	-webkit-font-smoothing: antialiased;
+	text-shadow: 1px 1px 1px rgba(#000, .15);
+}
+
+input, textarea {
+	box-sizing: border-box;
+	padding: $bar/8 $bar/4;
+	height: 100%;
+	background: transparent;
+	color: #fff;
+	-webkit-appearance: none;
+	border: none;
+	outline: none;
+	width: 100%;
+	text-shadow: 1px 1px 1px rgba(#000, .15);
+
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	-moz-hyphens: auto;
+	hyphens: auto;
+	text-rendering: optimizeLegibility;
+	-webkit-font-feature-settings: 'liga', 'dlig';
+	-moz-font-feature-settings: 'liga', 'dlig';
+	font-feature-settings: 'liga', 'dlig';
+	-webkit-font-smoothing: antialiased;
 }
 
 #wrapper {
@@ -26,9 +61,11 @@ header {
 	right: 0;
 	bottom: 0;
 	left: 0;
+	border-bottom: 1px solid darken($color, 5%);
 
 	&.opac {
 		background-color: rgba($color, .35);
+		border-bottom-color: transparent;
 	}
 }
 
@@ -54,7 +91,7 @@ header {
 		-webkit-animation-timing-function: $ease;
 		display: none;
 		opacity: 0;
-		position: relative;
+		position: absolute;
 		top: $bar;
 		right: 0;
 		bottom: 0;
@@ -62,6 +99,7 @@ header {
 		z-index: 998;
 		background-image: url("../images/overlay.png");
 		background-size: cover;
+		background-position: center;
 	}
 
 	#names {
@@ -93,7 +131,11 @@ header {
 		background-color: #000;
 
 		.content {
-			background-color: rgba($color, .72)
+			background-color: rgba($color, .72);
+
+			input {
+				font-size: 1.25em;
+			}
 		}
 	}
 }

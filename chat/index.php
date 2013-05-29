@@ -27,7 +27,9 @@
 				</article>
 
 				<article id="msg">
-					<aside class="content"></aside>
+					<aside class="content">
+						<input type="text" autofocus="true"/>
+					</aside>
 				</article>
 			</section>
 
