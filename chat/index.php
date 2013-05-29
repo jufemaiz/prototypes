@@ -11,22 +11,25 @@
 
 		<div id="wrapper">
 			<header>
-				<a href="#" data-id="users">Users</a>
-				<a href="#" data-id="settings">Settings</a>
-				<a href="#" data-id="rooms">Rooms</a>
+				<nav>
+					<a href="#" data-id="users">Users</a>
+					<a href="#" data-id="settings">Settings</a>
+					<a href="#" data-id="rooms">Rooms</a>
+					<a class="action" href="#" data-id="split">Split</a>
+				</nav>
 			</header>
 
-			<section id="main">
-				<aside id="overlay"></aside>
-				<article id="names">
+			<section class="main">
+				<aside class="overlay"></aside>
+				<article class="names">
 					<aside class="content"></aside>
 				</article>
 
-				<article id="chat">
+				<article class="chat">
 					<aside class="content"></aside>
 				</article>
 
-				<article id="msg">
+				<article class="msg">
 					<aside class="content">
 						<input type="text" autofocus="true"/>
 					</aside>
@@ -45,7 +48,12 @@
 
 			<section id="rooms" class="pane">
 				<aside class="title">Rooms</aside>
-				<aside class="content"></aside>
+				<aside class="content">
+					<ul>
+						<li class="active"><a href="#">Room 1</a></li>
+						<li><a  href="#" title="#123 - Room 2 has a long name">Room 2 has a long name</a></li>
+					</ul>
+				</aside>
 			</section>
 		</div>
 

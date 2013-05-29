@@ -1,0 +1,10 @@
+#rooms {
+	-webkit-transform: translate3d(12em,0,0);
+	width: 12em;
+
+	li {
+		&.active {
+			font-weight: bold;
+		}
+	}
+}
