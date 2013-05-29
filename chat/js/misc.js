@@ -20,9 +20,9 @@ function panes(id) {
 	move = 0;
 	pane_order = 0;
 	$(".open.pane").each(function(){
-		pane_size = pane_size + $(this).outerWidth();
 		$(this).attr("data-order", pane_order);
 
+		pane_size = pane_size + $(this).outerWidth();
 		move = pane_size - $(this).outerWidth();
 
 		$(this).css({
@@ -43,6 +43,10 @@ function panes(id) {
 }
 
 $(document).ready(function(){
+
+	$("#sticky").on("click", function(e) {
+		$("#wrapper").toggleClass("sticky");
+	});
 
 	$("nav a:not(.action)").on("click", function(e) {
 		$(this).toggleClass("active");

@@ -1,0 +1,55 @@
+header {
+	-webkit-transition-duration: $duration;
+	-webkit-animation-timing-function: $ease;
+	height: 4em;
+	background-color: $color;
+	position: fixed;
+	z-index: 990;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	border-bottom: 1px solid darken($color, 5%);
+
+	#tabs {
+		
+	}
+
+	nav {
+		-webkit-transition-duration: $duration;
+		-webkit-animation-timing-function: $ease;
+		float: right;
+		height: 4em;
+		line-height: 4em;
+		padding-right: 1em;
+
+		ul {
+			margin-top: 0;
+
+			li {
+				padding-right: 0;
+				float: left;
+			}
+		}
+	}
+
+	&.opac {
+		background-color: rgba($color, .35);
+		border-bottom-color: transparent;
+
+		nav a {
+			opacity: .5;
+
+			&.active {
+				opacity: 1.0;
+			}
+		}
+	}
+
+	&:before, &:after {
+		clear: both;
+		content: ".";
+		height: 0;
+		visibility: hidden;
+	}
+}

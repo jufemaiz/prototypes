@@ -79,53 +79,6 @@ a {
 	overflow: hidden;
 }
 
-header {
-	-webkit-transition-duration: $duration;
-	-webkit-animation-timing-function: $ease;
-	height: 4em;
-	background-color: $color;
-	position: fixed;
-	z-index: 990;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	border-bottom: 1px solid darken($color, 5%);
-
-	#tabs {
-		
-	}
-
-	nav {
-		-webkit-transition-duration: $duration;
-		-webkit-animation-timing-function: $ease;
-		float: right;
-		height: 4em;
-		line-height: 4em;
-		padding-right: 1em;
-	}
-
-	&.opac {
-		background-color: rgba($color, .35);
-		border-bottom-color: transparent;
-
-		nav a {
-			opacity: .5;
-
-			&.active {
-				opacity: 1.0;
-			}
-		}
-	}
-
-	&:before, &:after {
-		clear: both;
-		content: ".";
-		height: 0;
-		visibility: hidden;
-	}
-}
-
 .content {
 	box-sizing: border-box;
 	position: absolute;
@@ -135,6 +88,7 @@ header {
 }
 
 .pane {
+	border-right: 1px solid darken($color, 22%);
 	-webkit-transition-duration: $duration;
 	-webkit-animation-timing-function: $ease;
 	background-color: #000;
@@ -145,16 +99,15 @@ header {
 
 	&[data-order="0"] {
 		z-index: 998;
+		border-right-color: transparent;
 	}
 
 	&[data-order="1"] {
 		z-index: 997;
-		border-right: 1px solid darken($color, 22%);
 	}
 
 	&[data-order="2"] {
 		z-index: 996;
-		border-right: 1px solid darken($color, 22%);
 	}
 
 	.title {

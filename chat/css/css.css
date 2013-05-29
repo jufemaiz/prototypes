@@ -82,6 +82,56 @@ a:link, a:active, a:visited, a:hover {
 }
 
 /* line 82, ../scss/_base.scss */
+.content {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+/* line 90, ../scss/_base.scss */
+.pane {
+  border-right: 1px solid #0b54a0;
+  -webkit-transition-duration: 0.33s;
+  -webkit-animation-timing-function: ease-in;
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+/* line 100, ../scss/_base.scss */
+.pane[data-order="0"] {
+  z-index: 998;
+  border-right-color: transparent;
+}
+/* line 105, ../scss/_base.scss */
+.pane[data-order="1"] {
+  z-index: 997;
+}
+/* line 109, ../scss/_base.scss */
+.pane[data-order="2"] {
+  z-index: 996;
+}
+/* line 113, ../scss/_base.scss */
+.pane .title {
+  box-sizing: border-box;
+  padding: 0 .8em;
+  height: 4em;
+  width: 100%;
+  font-size: 1.25em;
+  font-weight: bold;
+  line-height: 3.2em;
+  background-color: rgba(42, 140, 241, 0.72);
+}
+/* line 124, ../scss/_base.scss */
+.pane .content {
+  background-color: #2a8cf1;
+  top: 4em;
+}
+
+/* line 1, ../scss/_header.scss */
 header {
   -webkit-transition-duration: 0.33s;
   -webkit-animation-timing-function: ease-in;
@@ -95,7 +145,7 @@ header {
   left: 0;
   border-bottom: 1px solid #127fef;
 }
-/* line 99, ../scss/_base.scss */
+/* line 18, ../scss/_header.scss */
 header nav {
   -webkit-transition-duration: 0.33s;
   -webkit-animation-timing-function: ease-in;
@@ -104,75 +154,34 @@ header nav {
   line-height: 4em;
   padding-right: 1em;
 }
-/* line 108, ../scss/_base.scss */
+/* line 26, ../scss/_header.scss */
+header nav ul {
+  margin-top: 0;
+}
+/* line 29, ../scss/_header.scss */
+header nav ul li {
+  padding-right: 0;
+  float: left;
+}
+/* line 36, ../scss/_header.scss */
 header.opac {
   background-color: rgba(42, 140, 241, 0.35);
   border-bottom-color: transparent;
 }
-/* line 112, ../scss/_base.scss */
+/* line 40, ../scss/_header.scss */
 header.opac nav a {
   opacity: .5;
 }
-/* line 115, ../scss/_base.scss */
+/* line 43, ../scss/_header.scss */
 header.opac nav a.active {
   opacity: 1.0;
 }
-/* line 121, ../scss/_base.scss */
+/* line 49, ../scss/_header.scss */
 header:before, header:after {
   clear: both;
   content: ".";
   height: 0;
   visibility: hidden;
-}
-
-/* line 129, ../scss/_base.scss */
-.content {
-  box-sizing: border-box;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-}
-
-/* line 137, ../scss/_base.scss */
-.pane {
-  -webkit-transition-duration: 0.33s;
-  -webkit-animation-timing-function: ease-in;
-  background-color: #000;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-}
-/* line 146, ../scss/_base.scss */
-.pane[data-order="0"] {
-  z-index: 998;
-}
-/* line 150, ../scss/_base.scss */
-.pane[data-order="1"] {
-  z-index: 997;
-  border-right: 1px solid #0b54a0;
-}
-/* line 155, ../scss/_base.scss */
-.pane[data-order="2"] {
-  z-index: 996;
-  border-right: 1px solid #0b54a0;
-}
-/* line 160, ../scss/_base.scss */
-.pane .title {
-  box-sizing: border-box;
-  padding: 0 .8em;
-  height: 4em;
-  width: 100%;
-  font-size: 1.25em;
-  font-weight: bold;
-  line-height: 3.2em;
-  background-color: rgba(42, 140, 241, 0.72);
-}
-/* line 171, ../scss/_base.scss */
-.pane .content {
-  background-color: #2a8cf1;
-  top: 4em;
 }
 
 /* line 1, ../scss/_chat.scss */
@@ -207,7 +216,7 @@ header:before, header:after {
   position: absolute;
   top: 4em;
   bottom: 4em;
-  width: 10em;
+  width: 12em;
   background-color: #000;
 }
 /* line 34, ../scss/_chat.scss */
@@ -221,7 +230,7 @@ header:before, header:after {
   top: 4em;
   right: 0;
   bottom: 4em;
-  left: 10em;
+  left: 12em;
 }
 /* line 47, ../scss/_chat.scss */
 .main .chat a {
@@ -264,4 +273,18 @@ header:before, header:after {
 #settings {
   -webkit-transform: translate3d(16em, 0, 0);
   width: 16em;
+}
+
+/* line 3, ../scss/_sticky.scss */
+#wrapper.sticky nav li:nth-child(4) {
+  display: none;
+}
+/* line 8, ../scss/_sticky.scss */
+#wrapper.sticky .main {
+  right: 12em;
+}
+/* line 12, ../scss/_sticky.scss */
+#wrapper.sticky #users {
+  border-left: 1px solid #127fef;
+  -webkit-transform: translate3d(0, 0, 0);
 }

@@ -11,11 +11,16 @@
 
 		<div id="wrapper">
 			<header>
+
+				<button id="sticky">sticky</button>
+
 				<nav>
-					<a href="#" data-id="users">Users</a>
-					<a href="#" data-id="settings">Settings</a>
-					<a href="#" data-id="rooms">Rooms</a>
-					<a class="action" href="#" data-id="split">Split</a>
+					<ul>
+						<li><a class="action" href="#" data-id="test">Test</a></li>
+						<li><a href="#" data-id="settings">Settings</a></li>
+						<li><a href="#" data-id="rooms">Rooms</a></li>
+						<li><a href="#" data-id="users">Users</a></li>
+					</ul>
 				</nav>
 			</header>
 
@@ -41,11 +46,6 @@
 				<aside class="content"></aside>
 			</section>
 
-			<section id="settings" class="pane">
-				<aside class="title">Settings</aside>
-				<aside class="content"></aside>
-			</section>
-
 			<section id="rooms" class="pane">
 				<aside class="title">Rooms</aside>
 				<aside class="content">
@@ -54,6 +54,11 @@
 						<li><a  href="#" title="#123 - Room 2 has a long name">Room 2 has a long name</a></li>
 					</ul>
 				</aside>
+			</section>
+
+			<section id="settings" class="pane">
+				<aside class="title">Settings</aside>
+				<aside class="content"></aside>
 			</section>
 		</div>
 

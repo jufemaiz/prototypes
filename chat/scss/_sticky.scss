@@ -1,0 +1,16 @@
+#wrapper.sticky {
+	nav{
+		li:nth-child(4) {
+			display: none;
+		}
+	}
+
+	.main {
+		right: 12em;
+	}
+
+	#users {
+		border-left: 1px solid darken($color, 5%);
+		-webkit-transform: translate3d(0,0,0);
+	}
+}
