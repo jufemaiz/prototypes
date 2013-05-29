@@ -64,6 +64,7 @@ $(document).ready(function(){
 
 			$(".overlay").show().animate({ opacity: pane_order*.25 });
 		} else {
+			$(".pane").removeAttr("data-order");
 			$("header").removeClass("opac");
 			$(".main").attr("style","").removeClass("effect");
 			$(".overlay").css("opacity","0");
