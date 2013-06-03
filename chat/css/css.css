@@ -258,6 +258,42 @@ header:before, header:after {
   -webkit-transform: translate3d(12em, 0, 0);
   width: 12em;
 }
+/* line 5, ../scss/_users.scss */
+#users li {
+  position: relative;
+}
+/* line 8, ../scss/_users.scss */
+#users li a:before {
+  font-size: .75em;
+  position: absolute;
+  top: 0;
+  left: .75em;
+}
+/* line 16, ../scss/_users.scss */
+#users li.op a:before {
+  content: "O";
+}
+/* line 22, ../scss/_users.scss */
+#users li.hop a:before {
+  content: "H";
+}
+/* line 27, ../scss/_users.scss */
+#users li.listen {
+  opacity: .7;
+}
+/* line 30, ../scss/_users.scss */
+#users li.listen a:before {
+  content: "L";
+}
+/* line 35, ../scss/_users.scss */
+#users li.afk {
+  font-style: italic;
+  opacity: .25;
+}
+/* line 40, ../scss/_users.scss */
+#users li.voice {
+  font-weight: bold;
+}
 
 /* line 1, ../scss/_rooms.scss */
 #rooms {

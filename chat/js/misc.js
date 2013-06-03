@@ -1,4 +1,4 @@
-var ww, wh, pane_size, move, margin = 32, pane_order, duration = 333;
+var ww, wh, pane_size, pane_order, move, margin = 32, duration = 333;
 
 function resize() {
 	ww = $(window).width();
