@@ -1,8 +1,10 @@
 .main {
+	display: none;
 	-webkit-transform-origin: left;
 	-webkit-transition-duration: $duration;
 	-webkit-animation-timing-function: $ease;
 	position: absolute;
+	z-index: 1;
 	top: 0;
 	right: 0;
 	bottom: 0;
@@ -63,5 +65,10 @@
 				font-size: 1.25em;
 			}
 		}
+	}
+
+	&.active {
+		z-index: 2;
+		display: block;
 	}
 }

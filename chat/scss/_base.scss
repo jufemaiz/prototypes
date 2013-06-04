@@ -97,19 +97,6 @@ a {
 	bottom: 0;
 	right: 0;
 
-	&[data-order="0"] {
-		z-index: 998;
-		border-right-color: transparent;
-	}
-
-	&[data-order="1"] {
-		z-index: 997;
-	}
-
-	&[data-order="2"] {
-		z-index: 996;
-	}
-
 	.title {
 		box-sizing: border-box;
 		padding: 0 .8em;

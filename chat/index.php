@@ -3,7 +3,8 @@
 	<head>
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="css/css.css" media="screen" />
-		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<!-- 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> -->
+		<script src="js/jquery.js"></script>
 		<script src="js/blur.js"></script>
 		<script src="js/misc.js"></script>
 	</head>
@@ -15,21 +16,21 @@
 				<nav>
 					<ul>
 						<li><a class="action" href="#" data-id="test">Test</a></li>
-						<li><a href="#" data-id="settings">Settings</a></li>
-						<li><a href="#" data-id="rooms">Rooms</a></li>
-						<li><a href="#" data-id="users">Users</a></li>
+						<li><a href="#" data-pane="settings">Settings</a></li>
+						<li><a href="#" data-pane="rooms">Rooms</a></li>
+						<li><a href="#" data-pane="users">Users</a></li>
 					</ul>
 				</nav>
 			</header>
 
-			<section class="main">
+			<section class="main active" data-chat="r1">
 				<aside class="overlay"></aside>
 				<article class="names">
 					<aside class="content"></aside>
 				</article>
 
 				<article class="chat">
-					<aside class="content"></aside>
+					<aside class="content">r1</aside>
 				</article>
 
 				<article class="msg">
@@ -39,7 +40,7 @@
 				</article>
 			</section>
 
-			<section id="users" class="pane">
+			<section class="users pane active" data-chat="r1">
 				<aside class="title">Users</aside>
 				<aside class="content">
 					<ul>
@@ -52,17 +53,17 @@
 				</aside>
 			</section>
 
-			<section id="rooms" class="pane">
+			<section class="rooms pane">
 				<aside class="title">Rooms</aside>
 				<aside class="content">
 					<ul>
-						<li class="active"><a href="#" title="#321 - Room 1">Room 1</a></li>
-						<li><a  href="#" title="#123 - Room 2 has a long name">Room 2 has a long name</a></li>
+						<li class="active"><a id="r1" href="#" title="#1 - Room 1">Room 1</a></li>
+						<li><a id="r2" href="#" title="#2 - Room 2 has a long name">Room 2 has a long name</a></li>
 					</ul>
 				</aside>
 			</section>
 
-			<section id="settings" class="pane">
+			<section class="settings pane">
 				<aside class="title">Settings</aside>
 				<aside class="content">
 					<button id="sticky">sticky</button>

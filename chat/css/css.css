@@ -102,19 +102,6 @@ a:link, a:active, a:visited, a:hover {
   right: 0;
 }
 /* line 100, ../scss/_base.scss */
-.pane[data-order="0"] {
-  z-index: 998;
-  border-right-color: transparent;
-}
-/* line 105, ../scss/_base.scss */
-.pane[data-order="1"] {
-  z-index: 997;
-}
-/* line 109, ../scss/_base.scss */
-.pane[data-order="2"] {
-  z-index: 996;
-}
-/* line 113, ../scss/_base.scss */
 .pane .title {
   box-sizing: border-box;
   padding: 0 .8em;
@@ -125,7 +112,7 @@ a:link, a:active, a:visited, a:hover {
   line-height: 3.2em;
   background-color: rgba(42, 140, 241, 0.72);
 }
-/* line 124, ../scss/_base.scss */
+/* line 111, ../scss/_base.scss */
 .pane .content {
   background-color: #2a8cf1;
   top: 4em;
@@ -186,16 +173,18 @@ header:before, header:after {
 
 /* line 1, ../scss/_chat.scss */
 .main {
+  display: none;
   -webkit-transform-origin: left;
   -webkit-transition-duration: 0.33s;
   -webkit-animation-timing-function: ease-in;
   position: absolute;
+  z-index: 1;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
 }
-/* line 11, ../scss/_chat.scss */
+/* line 13, ../scss/_chat.scss */
 .main .overlay {
   -webkit-transition-duration: 0.33s;
   -webkit-animation-timing-function: ease-in;
@@ -211,7 +200,7 @@ header:before, header:after {
   background-size: cover;
   background-position: center;
 }
-/* line 27, ../scss/_chat.scss */
+/* line 29, ../scss/_chat.scss */
 .main .names {
   position: absolute;
   top: 4em;
@@ -219,11 +208,11 @@ header:before, header:after {
   width: 12em;
   background-color: #000;
 }
-/* line 34, ../scss/_chat.scss */
+/* line 36, ../scss/_chat.scss */
 .main .names .content {
   background-color: rgba(42, 140, 241, 0.93);
 }
-/* line 39, ../scss/_chat.scss */
+/* line 41, ../scss/_chat.scss */
 .main .chat {
   background-color: #2a8cf1;
   position: absolute;
@@ -232,11 +221,11 @@ header:before, header:after {
   bottom: 4em;
   left: 12em;
 }
-/* line 47, ../scss/_chat.scss */
+/* line 49, ../scss/_chat.scss */
 .main .chat a {
   text-decoration: underline;
 }
-/* line 52, ../scss/_chat.scss */
+/* line 54, ../scss/_chat.scss */
 .main .msg {
   position: absolute;
   bottom: 0;
@@ -244,19 +233,26 @@ header:before, header:after {
   width: 100%;
   background-color: #000;
 }
-/* line 59, ../scss/_chat.scss */
+/* line 61, ../scss/_chat.scss */
 .main .msg .content {
   background-color: rgba(42, 140, 241, 0.72);
 }
-/* line 62, ../scss/_chat.scss */
+/* line 64, ../scss/_chat.scss */
 .main .msg .content input {
   font-size: 1.25em;
 }
+/* line 70, ../scss/_chat.scss */
+.main.active {
+  z-index: 2;
+  display: block;
+}
 
 /* line 1, ../scss/_users.scss */
-#users {
+.users {
   -webkit-transform: translate3d(12em, 0, 0);
   width: 12em;
+  z-index: 998;
+  border-right-color: transparent;
 }
 /* line 5, ../scss/_users.scss */
 #users li {
@@ -296,19 +292,21 @@ header:before, header:after {
 }
 
 /* line 1, ../scss/_rooms.scss */
-#rooms {
+.rooms {
   -webkit-transform: translate3d(12em, 0, 0);
   width: 12em;
+  z-index: 997;
 }
-/* line 6, ../scss/_rooms.scss */
-#rooms li.active {
+/* line 7, ../scss/_rooms.scss */
+.rooms li.active {
   font-weight: bold;
 }
 
 /* line 1, ../scss/_settings.scss */
-#settings {
+.settings {
   -webkit-transform: translate3d(16em, 0, 0);
   width: 16em;
+  z-index: 996;
 }
 
 /* line 3, ../scss/_sticky.scss */
@@ -320,7 +318,7 @@ header:before, header:after {
   right: 12em;
 }
 /* line 12, ../scss/_sticky.scss */
-#wrapper.sticky #users {
+#wrapper.sticky .users {
   border-left: 1px solid #127fef;
   -webkit-transform: translate3d(0, 0, 0);
 }
