@@ -1,46 +1,54 @@
-.users {
+#users {
 	-webkit-transform: translate3d(12em,0,0);
 	width: 12em;
 	z-index: 998;
 	border-right-color: transparent;
 
-	li {
-		position: relative;
+	.content {
+		display: none;
 
-		a:before {
-			font-size: .75em;
-			position: absolute;
-			top: 0;
-			left: .75em;
-		}
-
-		&.op {
+		li {
+			position: relative;
+	
 			a:before {
-				content: "O";
+				font-size: .75em;
+				position: absolute;
+				top: 0;
+				left: .75em;
+			}
+	
+			&.op {
+				a:before {
+					content: "O";
+				}
+			}
+	
+			&.hop {
+				a:before {
+					content: "H";
+				}
+			}
+	
+			&.listen {
+				opacity: .7;
+	
+				a:before {
+					content: "L";
+				}
+			}
+	
+			&.afk {
+				font-style: italic;
+				opacity: .25;
+			}
+	
+			&.voice {
+				font-weight: bold;
 			}
 		}
 
-		&.hop {
-			a:before {
-				content: "H";
-			}
-		}
-
-		&.listen {
-			opacity: .7;
-
-			a:before {
-				content: "L";
-			}
-		}
-
-		&.afk {
-			font-style: italic;
-			opacity: .25;
-		}
-
-		&.voice {
-			font-weight: bold;
+		&.active {
+			display: block;
 		}
 	}
 }

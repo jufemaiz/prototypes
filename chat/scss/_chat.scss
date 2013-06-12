@@ -11,8 +11,6 @@
 	left: 0;
 
 	.overlay {
-		-webkit-transition-duration: $duration;
-		-webkit-animation-timing-function: $ease;
 		display: none;
 		opacity: 0;
 		position: absolute;

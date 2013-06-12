@@ -1,3 +1,8 @@
+* {
+	-webkit-transition-duration: $duration;
+	-webkit-animation-timing-function: $ease;
+}
+
 html, body {
 	margin: 0;
 	padding: 0;
@@ -18,7 +23,7 @@ html, body {
 	text-shadow: 1px 1px 1px rgba(#000, .15);
 }
 
-input, textarea {
+input[type='text'], textarea {
 	box-sizing: border-box;
 	padding: .5em 1em;
 	height: 100%;
@@ -39,6 +44,37 @@ input, textarea {
 	-moz-font-feature-settings: 'liga', 'dlig';
 	font-feature-settings: 'liga', 'dlig';
 	-webkit-font-smoothing: antialiased;
+}
+input {
+	&[type='radio'], &[type='checkbox'] {
+		height: auto;
+
+		&.custom {
+			display: none;
+		
+			+ span {
+				margin-right: .5em;
+				border-radius: 1em;
+				position: relative;
+				top: 2px;
+				display: inline-block;
+				height: .75em;
+				width: .75em;
+				background: #fff;
+				border: 2px solid #fff;
+			}
+		
+			&:checked {
+				+ span {
+				box-shadow: 0 0 0 2px $color inset;
+				}
+			}
+		}
+	}
+
+	&[type='checkbox'].custom + span {
+		border-radius: 0;
+	}
 }
 
 ul {
@@ -88,9 +124,7 @@ a {
 }
 
 .pane {
-	border-right: 1px solid darken($color, 22%);
-	-webkit-transition-duration: $duration;
-	-webkit-animation-timing-function: $ease;
+	border-right: 1px solid darken($color, 4%);
 	background-color: #000;
 	position: absolute;
 	top: 0;

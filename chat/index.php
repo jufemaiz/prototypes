@@ -3,8 +3,7 @@
 	<head>
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="css/css.css" media="screen" />
-<!-- 		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> -->
-		<script src="js/jquery.js"></script>
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 		<script src="js/blur.js"></script>
 		<script src="js/misc.js"></script>
 	</head>
@@ -12,13 +11,11 @@
 
 		<div id="wrapper">
 			<header>
-
 				<nav>
 					<ul>
-						<li><a class="action" href="#" data-id="test">Test</a></li>
-						<li><a href="#" data-pane="settings">Settings</a></li>
-						<li><a href="#" data-pane="rooms">Rooms</a></li>
-						<li><a href="#" data-pane="users">Users</a></li>
+						<li><a id="tool_settings" data-pane="settings" href="#">Settings</a></li>
+						<li><a id="tool_rooms" data-pane="rooms" href="#">Rooms</a></li>
+						<li><a id="tool_users" data-pane="users" href="#">Users</a></li>
 					</ul>
 				</nav>
 			</header>
@@ -40,9 +37,9 @@
 				</article>
 			</section>
 
-			<section class="users pane active" data-chat="r1">
+			<section id="users" class="pane">
 				<aside class="title">Users</aside>
-				<aside class="content">
+				<aside class="content active" data-chat="r1">
 					<ul>
 						<li class="op voice"><a href="#" title="Tel Smith">OP</a></li>
 						<li class="hop"><a href="#" title="Aaron Linkous">Half Op</a></li>
@@ -53,7 +50,7 @@
 				</aside>
 			</section>
 
-			<section class="rooms pane">
+			<section id="rooms" class="pane">
 				<aside class="title">Rooms</aside>
 				<aside class="content">
 					<ul>
@@ -63,10 +60,16 @@
 				</aside>
 			</section>
 
-			<section class="settings pane">
+			<section id="settings" class="pane">
 				<aside class="title">Settings</aside>
 				<aside class="content">
-					<button id="sticky">sticky</button>
+					<ul>
+						<li><label><input type="checkbox" class="custom"><span></span> Checkbox</label></li>
+						<li><label><input type="checkbox" class="custom"><span></span> Checkbox</label></li>
+
+						<li><label><input type="radio" class="custom"><span></span> Radio Button</label></li>
+						<li><label><input type="radio" class="custom"><span></span> Radio Button</label></li>
+					</ul>
 				</aside>
 			</section>
 		</div>

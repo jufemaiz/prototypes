@@ -1,4 +1,14 @@
+/* $color: #22d77b; */
+/* $color: #2a8cf1; */
+/* $color: #4242ff; */
+/* $color: #fff; */
 /* line 1, ../scss/_base.scss */
+* {
+  -webkit-transition-duration: 0.33s;
+  -webkit-animation-timing-function: ease-in;
+}
+
+/* line 6, ../scss/_base.scss */
 html, body {
   margin: 0;
   padding: 0;
@@ -19,8 +29,8 @@ html, body {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 }
 
-/* line 21, ../scss/_base.scss */
-input, textarea {
+/* line 26, ../scss/_base.scss */
+input[type='text'], textarea {
   box-sizing: border-box;
   padding: .5em 1em;
   height: 100%;
@@ -42,18 +52,47 @@ input, textarea {
   -webkit-font-smoothing: antialiased;
 }
 
-/* line 44, ../scss/_base.scss */
+/* line 49, ../scss/_base.scss */
+input[type='radio'], input[type='checkbox'] {
+  height: auto;
+}
+/* line 52, ../scss/_base.scss */
+input[type='radio'].custom, input[type='checkbox'].custom {
+  display: none;
+}
+/* line 55, ../scss/_base.scss */
+input[type='radio'].custom + span, input[type='checkbox'].custom + span {
+  margin-right: .5em;
+  border-radius: 1em;
+  position: relative;
+  top: 2px;
+  display: inline-block;
+  height: .75em;
+  width: .75em;
+  background: #fff;
+  border: 2px solid #fff;
+}
+/* line 68, ../scss/_base.scss */
+input[type='radio'].custom:checked + span, input[type='checkbox'].custom:checked + span {
+  box-shadow: 0 0 0 2px #ff4242 inset;
+}
+/* line 75, ../scss/_base.scss */
+input[type='checkbox'].custom + span {
+  border-radius: 0;
+}
+
+/* line 80, ../scss/_base.scss */
 ul {
   margin: 2em 0 0;
   padding: 0;
   list-style: none;
 }
-/* line 49, ../scss/_base.scss */
+/* line 85, ../scss/_base.scss */
 ul li {
   margin: 0 0 .5em;
   padding: 0 2em;
 }
-/* line 53, ../scss/_base.scss */
+/* line 89, ../scss/_base.scss */
 ul li a {
   overflow: hidden;
   white-space: nowrap;
@@ -63,16 +102,16 @@ ul li a {
   width: 100%;
 }
 
-/* line 65, ../scss/_base.scss */
+/* line 101, ../scss/_base.scss */
 a:link, a:active, a:visited, a:hover {
   color: #fff;
   text-decoration: none;
   cursor: pointer;
 }
 
-/* line 72, ../scss/_base.scss */
+/* line 108, ../scss/_base.scss */
 #wrapper {
-  background: rgba(42, 140, 241, 0.25);
+  background: rgba(255, 66, 66, 0.25);
   position: absolute;
   top: 0;
   right: 0;
@@ -81,7 +120,7 @@ a:link, a:active, a:visited, a:hover {
   overflow: hidden;
 }
 
-/* line 82, ../scss/_base.scss */
+/* line 118, ../scss/_base.scss */
 .content {
   box-sizing: border-box;
   position: absolute;
@@ -90,18 +129,16 @@ a:link, a:active, a:visited, a:hover {
   width: 100%;
 }
 
-/* line 90, ../scss/_base.scss */
+/* line 126, ../scss/_base.scss */
 .pane {
-  border-right: 1px solid #0b54a0;
-  -webkit-transition-duration: 0.33s;
-  -webkit-animation-timing-function: ease-in;
+  border-right: 1px solid #ff2e2e;
   background-color: #000;
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
 }
-/* line 100, ../scss/_base.scss */
+/* line 134, ../scss/_base.scss */
 .pane .title {
   box-sizing: border-box;
   padding: 0 .8em;
@@ -110,60 +147,56 @@ a:link, a:active, a:visited, a:hover {
   font-size: 1.25em;
   font-weight: bold;
   line-height: 3.2em;
-  background-color: rgba(42, 140, 241, 0.72);
+  background-color: rgba(255, 66, 66, 0.72);
 }
-/* line 111, ../scss/_base.scss */
+/* line 145, ../scss/_base.scss */
 .pane .content {
-  background-color: #2a8cf1;
+  background-color: #ff4242;
   top: 4em;
 }
 
 /* line 1, ../scss/_header.scss */
 header {
-  -webkit-transition-duration: 0.33s;
-  -webkit-animation-timing-function: ease-in;
   height: 4em;
-  background-color: #2a8cf1;
+  background-color: #ff4242;
   position: fixed;
   z-index: 990;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  border-bottom: 1px solid #127fef;
+  border-bottom: 1px solid #ff2e2e;
 }
-/* line 18, ../scss/_header.scss */
+/* line 16, ../scss/_header.scss */
 header nav {
-  -webkit-transition-duration: 0.33s;
-  -webkit-animation-timing-function: ease-in;
   float: right;
   height: 4em;
   line-height: 4em;
   padding-right: 1em;
 }
-/* line 26, ../scss/_header.scss */
+/* line 22, ../scss/_header.scss */
 header nav ul {
   margin-top: 0;
 }
-/* line 29, ../scss/_header.scss */
+/* line 25, ../scss/_header.scss */
 header nav ul li {
   padding-right: 0;
   float: left;
 }
-/* line 36, ../scss/_header.scss */
+/* line 32, ../scss/_header.scss */
 header.opac {
-  background-color: rgba(42, 140, 241, 0.35);
+  background-color: rgba(255, 66, 66, 0.35);
   border-bottom-color: transparent;
 }
-/* line 40, ../scss/_header.scss */
+/* line 36, ../scss/_header.scss */
 header.opac nav a {
   opacity: .5;
 }
-/* line 43, ../scss/_header.scss */
+/* line 39, ../scss/_header.scss */
 header.opac nav a.active {
   opacity: 1.0;
 }
-/* line 49, ../scss/_header.scss */
+/* line 45, ../scss/_header.scss */
 header:before, header:after {
   clear: both;
   content: ".";
@@ -186,8 +219,6 @@ header:before, header:after {
 }
 /* line 13, ../scss/_chat.scss */
 .main .overlay {
-  -webkit-transition-duration: 0.33s;
-  -webkit-animation-timing-function: ease-in;
   display: none;
   opacity: 0;
   position: absolute;
@@ -200,7 +231,7 @@ header:before, header:after {
   background-size: cover;
   background-position: center;
 }
-/* line 29, ../scss/_chat.scss */
+/* line 27, ../scss/_chat.scss */
 .main .names {
   position: absolute;
   top: 4em;
@@ -208,24 +239,24 @@ header:before, header:after {
   width: 12em;
   background-color: #000;
 }
-/* line 36, ../scss/_chat.scss */
+/* line 34, ../scss/_chat.scss */
 .main .names .content {
-  background-color: rgba(42, 140, 241, 0.93);
+  background-color: rgba(255, 66, 66, 0.93);
 }
-/* line 41, ../scss/_chat.scss */
+/* line 39, ../scss/_chat.scss */
 .main .chat {
-  background-color: #2a8cf1;
+  background-color: #ff4242;
   position: absolute;
   top: 4em;
   right: 0;
   bottom: 4em;
   left: 12em;
 }
-/* line 49, ../scss/_chat.scss */
+/* line 47, ../scss/_chat.scss */
 .main .chat a {
   text-decoration: underline;
 }
-/* line 54, ../scss/_chat.scss */
+/* line 52, ../scss/_chat.scss */
 .main .msg {
   position: absolute;
   bottom: 0;
@@ -233,92 +264,90 @@ header:before, header:after {
   width: 100%;
   background-color: #000;
 }
-/* line 61, ../scss/_chat.scss */
+/* line 59, ../scss/_chat.scss */
 .main .msg .content {
-  background-color: rgba(42, 140, 241, 0.72);
+  background-color: rgba(255, 66, 66, 0.72);
 }
-/* line 64, ../scss/_chat.scss */
+/* line 62, ../scss/_chat.scss */
 .main .msg .content input {
   font-size: 1.25em;
 }
-/* line 70, ../scss/_chat.scss */
+/* line 68, ../scss/_chat.scss */
 .main.active {
   z-index: 2;
   display: block;
 }
 
 /* line 1, ../scss/_users.scss */
-.users {
+#users {
   -webkit-transform: translate3d(12em, 0, 0);
   width: 12em;
   z-index: 998;
   border-right-color: transparent;
 }
-/* line 5, ../scss/_users.scss */
-#users li {
+/* line 7, ../scss/_users.scss */
+#users .content {
+  display: none;
+}
+/* line 10, ../scss/_users.scss */
+#users .content li {
   position: relative;
 }
-/* line 8, ../scss/_users.scss */
-#users li a:before {
+/* line 13, ../scss/_users.scss */
+#users .content li a:before {
   font-size: .75em;
   position: absolute;
   top: 0;
   left: .75em;
 }
-/* line 16, ../scss/_users.scss */
-#users li.op a:before {
+/* line 21, ../scss/_users.scss */
+#users .content li.op a:before {
   content: "O";
 }
-/* line 22, ../scss/_users.scss */
-#users li.hop a:before {
+/* line 27, ../scss/_users.scss */
+#users .content li.hop a:before {
   content: "H";
 }
-/* line 27, ../scss/_users.scss */
-#users li.listen {
+/* line 32, ../scss/_users.scss */
+#users .content li.listen {
   opacity: .7;
 }
-/* line 30, ../scss/_users.scss */
-#users li.listen a:before {
+/* line 35, ../scss/_users.scss */
+#users .content li.listen a:before {
   content: "L";
 }
-/* line 35, ../scss/_users.scss */
-#users li.afk {
+/* line 40, ../scss/_users.scss */
+#users .content li.afk {
   font-style: italic;
   opacity: .25;
 }
-/* line 40, ../scss/_users.scss */
-#users li.voice {
+/* line 45, ../scss/_users.scss */
+#users .content li.voice {
   font-weight: bold;
+}
+/* line 50, ../scss/_users.scss */
+#users .content.active {
+  display: block;
 }
 
 /* line 1, ../scss/_rooms.scss */
-.rooms {
+#rooms {
   -webkit-transform: translate3d(12em, 0, 0);
   width: 12em;
   z-index: 997;
 }
 /* line 7, ../scss/_rooms.scss */
-.rooms li.active {
+#rooms li.active {
   font-weight: bold;
 }
 
 /* line 1, ../scss/_settings.scss */
-.settings {
+#settings {
   -webkit-transform: translate3d(16em, 0, 0);
   width: 16em;
   z-index: 996;
 }
-
-/* line 3, ../scss/_sticky.scss */
-#wrapper.sticky nav li:nth-child(4) {
-  display: none;
-}
-/* line 8, ../scss/_sticky.scss */
-#wrapper.sticky .main {
-  right: 12em;
-}
-/* line 12, ../scss/_sticky.scss */
-#wrapper.sticky .users {
-  border-left: 1px solid #127fef;
-  -webkit-transform: translate3d(0, 0, 0);
+/* line 6, ../scss/_settings.scss */
+#settings li {
+  padding-left: .75em;
 }

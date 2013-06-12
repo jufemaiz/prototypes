@@ -1,4 +1,4 @@
-var ww, wh, pane_size, move, pane_num, margin = 32, duration = 333;
+var ww, wh, pane_size, move, margin = 32, pane_num, duration = 333;
 
 function new_room(id) {
 	style = $(".main.active").attr("style");
@@ -22,7 +22,12 @@ function new_room(id) {
 }
 
 function new_chat(id) {
-	chat_pane = '<aside class="content active" data-chat="'+id+'">'+id+'</aside>';
+	style = $(".users.active").attr("style");
+
+	chat_pane = '<section class="users pane active" data-chat="'+id+'" style="'+style+'">';
+	chat_pane +='<aside class="title">Users</aside>';
+	chat_pane +='<aside class="content">'+id+'</aside>';
+	chat_pane +='</section>';
 
 	return chat_pane;
 }
@@ -32,25 +37,16 @@ function resize() {
 	wh = $(window).height();
 }
 
-function reset() {
-	$("header").removeClass("opac");
-	$(".main").attr("style","").removeClass("effect");
-	$(".overlay").css("opacity","0");
-
-	setTimeout(function(){
-		$(".overlay").hide();
-	}, duration);
-}
-
-function panes(id) {
+function panes(pane) {
 	pane_size = 0;
-	pane = $("#"+id);
+	specific = pane == "users" ? '[data-chat="'+$(".main.active").attr("data-chat")+'"]' : "";
+	pane = $("."+pane+specific);
 
 	resize();
 
 	if(pane.hasClass("open")) {
-		pane.removeClass("open").attr("style","");
-		$("#tool_"+id).removeClass("active");
+		$(".pane").removeClass("open").attr("style","");
+		$("nav a").removeClass("active");
 	} else {
 		pane.addClass("open");
 	}
@@ -68,7 +64,6 @@ function panes(id) {
 		pane_num++;
 
 	});
-
 	$("nav").css("margin-right", pane_size);
 
 	ratio = (ww-(pane_size+(margin*2))) / ww;
@@ -77,33 +72,33 @@ function panes(id) {
 	$(".effect").css({
 		"-webkit-transform" : "scale3d("+ratio+","+ratio+",1) translate3d("+margin/ratio+"px, "+margin/ratio+"px, 0)"
 	});
-
 }
 
 $(document).ready(function(){
 
-	$("button").on("click", function(e) {
-		
-	});
+	$(".rooms a").on("click", function(){
+		room = $(this).attr("id");
 
-	$("#rooms a").on("click", function(){
-		n_room = $(this).attr("id");
-		o_room = $(".main.active").attr("data-chat");
-
-		if(!$(this).parent().hasClass("active")) {
-			$("#wrapper").append(new_room(n_room));
-			$("#users").append(new_chat(n_room));
-			$(this).parent().addClass("active");
+		if($(this).parent().hasClass("active")) {
+			$("[data-chat='"+room+"']").addClass("active");
+			console.log(room)
+		}else{
+			$(this).parent().addClass("active")
+			$("#wrapper").append(new_room(room));
+			$("#wrapper").append(new_chat(room));
 		}
 
+		$(".main:not([data-chat='"+room+"'])").removeClass("active");
+		$(".users:not([data-chat='"+room+"'])").removeClass("active open");
 
-		$("*[data-chat='"+o_room+"']").removeClass("active");
-		$("*[data-chat='"+n_room+"']").addClass("active");
-
-		$("#tool_rooms").trigger("click");
+		$("nav a[data-pane='rooms']").trigger("click");
 	});
 
-	$("nav a").on("click", function(e) {
+	$("#sticky").on("click", function(e) {
+		$("#wrapper").toggleClass("sticky");
+	});
+
+	$("nav a:not(.action)").on("click", function(e) {
 		$(this).toggleClass("active");
 		$("header").addClass("opac");
 		$(".main").addClass("effect");
@@ -118,9 +113,20 @@ $(document).ready(function(){
 				persist: false
 			});
 
-			$(".overlay").show().animate({ opacity: pane_num*.25 }, duration);
+			$(".overlay").show().animate({ opacity: pane_num*.25 });
 		} else {
-			reset();
+			$(".pane").removeAttr("data-order");
+			$("header").removeClass("opac");
+			$(".main").attr("style","").removeClass("effect");
+			$(".overlay").css("opacity","0");
+
+			setTimeout(function(){
+				$(".overlay").hide();
+			}, duration);
 		}
+	});
+
+	$("nav a.action").on("click", function(e) {
+		
 	});
 });
