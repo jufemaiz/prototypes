@@ -32,6 +32,7 @@ header {
 			}
 
 			span {
+				-webkit-transition-duration: 0;
 				cursor: pointer;
 				font-weight: bold;
 				text-align: center;
@@ -47,7 +48,7 @@ header {
 				color: #fff;
 
 				&:hover {
-					color: darken($border_color, 15%);
+					color: darken($border_color, 20%);
 					background-color: $color;
 				}
 			}
@@ -81,12 +82,6 @@ header {
 	&.opac {
 		background-color: rgba($color, .35);
 		border-bottom-color: transparent;
-
-		#tabs {
-			span {
-				background-color: rgba($color, .75);
-			}
-		}
 
 		nav a {
 			opacity: .5;

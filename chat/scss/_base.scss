@@ -7,7 +7,7 @@ html, body {
 	margin: 0;
 	padding: 0;
 	background-color: #000;
-	color: #fff;
+	color: $fg;
 	font-family: "Myriad Pro", "Lucida Grande", "Gill Sans", "Gill Sans MT", "Lucida Sans Unicode", Calibri, Arial, sans-serif;
 	font-size: 16px;
 	line-height: 1.5em;
@@ -28,7 +28,7 @@ input[type='text'], textarea {
 	padding: .5em 1em;
 	height: 100%;
 	background: transparent;
-	color: #fff;
+	color: $fg;
 	-webkit-appearance: none;
 	border: none;
 	outline: none;
@@ -61,8 +61,8 @@ input {
 				display: inline-block;
 				height: .75em;
 				width: .75em;
-				background: #fff;
-				border: 2px solid #fff;
+				background: $fg;
+				border: 2px solid $fg;
 			}
 		
 			&:checked {
@@ -108,7 +108,7 @@ ul {
 
 a {
 	&:link, &:active, &:visited, &:hover {
-		color: #fff;
+		color: $fg;
 		text-decoration: none;
 		cursor: pointer;
 	}

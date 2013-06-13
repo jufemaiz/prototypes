@@ -1,8 +1,21 @@
-$color: #22d77b;
+
+/* $color: #22d77b; */
 /* $color: #FF4242; */
 /* $color: #2a8cf1; */
 /* $color: #4242ff; */
-/* $color: #fff; */
+$color: #fff;
+
+@function text-color($col) {
+	$txt: #fff;
+
+	@if lightness($col) >= 70% {
+		$txt: #222;
+	}
+
+	@return $txt;
+}
+
+$fg: text-color($color);
 
 $border_color: desaturate(darken($color, 5%), 15%);
 

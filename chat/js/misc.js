@@ -140,6 +140,8 @@ $(document).ready(function(){
 			$("#tool_users").hide();
 			$("#tool_rooms").trigger("click");
 		}
+
+		console.log($(this).closest("li").siblings("li"));
 	});
 
 	$("nav a").on("click", function(e) {
