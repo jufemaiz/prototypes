@@ -2,6 +2,7 @@
 /* $color: #FF4242; */
 /* $color: #2a8cf1; */
 /* $color: #4242ff; */
+/* $color: #ffe402; */
 /* line 1, ../scss/_base.scss */
 * {
   -webkit-transition-duration: 0.33s;
@@ -139,7 +140,7 @@ a:link, a:active, a:visited, a:hover {
 
 /* line 135, ../scss/_base.scss */
 .pane {
-  border-right: 1px solid #f2f2f2;
+  border-right: 1px solid #a6a6a6;
   background-color: #000;
   position: absolute;
   top: 0;
@@ -173,7 +174,7 @@ header {
   right: 0;
   bottom: 0;
   left: 0;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid #a6a6a6;
 }
 /* line 12, ../scss/_header.scss */
 header #tabs {
@@ -201,7 +202,7 @@ header #tabs .tab a {
 }
 /* line 34, ../scss/_header.scss */
 header #tabs .tab span {
-  -webkit-transition-duration: 0;
+  -webkit-transition-duration: 0.165s;
   cursor: pointer;
   font-weight: bold;
   text-align: center;
@@ -214,11 +215,11 @@ header #tabs .tab span {
   width: 1.25em;
   border-radius: 1em;
   text-shadow: none;
-  color: #fff;
+  color: #222222;
 }
 /* line 50, ../scss/_header.scss */
 header #tabs .tab span:hover {
-  color: #bfbfbf;
+  color: #737373;
   background-color: white;
 }
 /* line 56, ../scss/_header.scss */

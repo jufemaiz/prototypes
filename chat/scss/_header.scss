@@ -32,7 +32,7 @@ header {
 			}
 
 			span {
-				-webkit-transition-duration: 0;
+				-webkit-transition-duration: $duration / 2;
 				cursor: pointer;
 				font-weight: bold;
 				text-align: center;
@@ -45,7 +45,7 @@ header {
 				width: 1.25em;
 				border-radius: 1em;
 				text-shadow: none;
-				color: #fff;
+				color: $fg;
 
 				&:hover {
 					color: darken($border_color, 20%);

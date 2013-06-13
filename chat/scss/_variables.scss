@@ -3,21 +3,31 @@
 /* $color: #FF4242; */
 /* $color: #2a8cf1; */
 /* $color: #4242ff; */
+/* $color: #ffe402; */
 $color: #fff;
 
 @function text-color($col) {
 	$txt: #fff;
 
-	@if lightness($col) >= 70% {
+	@if lightness($col) >= 65% {
 		$txt: #222;
 	}
 
 	@return $txt;
 }
 
-$fg: text-color($color);
+@function border-color($col) {
+	$border: darken($col, 10%);
 
-$border_color: desaturate(darken($color, 5%), 15%);
+	@if lightness($col) >= 65% {
+		$border: darken($col, 35%);
+	}
+
+	@return $border;
+}
+
+$fg: text-color($color);
+$border_color: border-color($color);
 
 $duration: .33s; // also inside misc.js
 $ease: ease-in-out;
