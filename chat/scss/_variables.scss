@@ -16,6 +16,16 @@ $color: #fff;
 	@return $txt;
 }
 
+@function shadow-color($col) {
+	$shadow: rgba(#000, .15);
+
+	@if lightness($col) >= 65% {
+		$shadow: rgba(#fff, .65);
+	}
+
+	@return $shadow;
+}
+
 @function border-color($col) {
 	$border: darken($col, 10%);
 
@@ -27,6 +37,7 @@ $color: #fff;
 }
 
 $fg: text-color($color);
+$fg_shadow: shadow-color($color);
 $border_color: border-color($color);
 
 $duration: .33s; // also inside misc.js
