@@ -1,8 +1,10 @@
-/* $color: #22d77b; */
-$color: #FF4242;
+$color: #22d77b;
+/* $color: #FF4242; */
 /* $color: #2a8cf1; */
 /* $color: #4242ff; */
 /* $color: #fff; */
 
+$border_color: desaturate(darken($color, 5%), 15%);
+
 $duration: .33s; // also inside misc.js
-$ease: ease-in;
+$ease: ease-in-out;

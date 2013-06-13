@@ -5,5 +5,9 @@
 
 	li {
 		padding-left: .75em;
+
+		&.sub {
+			margin: 2em 0 .75em;
+		}
 	}
 }

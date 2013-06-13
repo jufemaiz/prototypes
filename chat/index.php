@@ -10,7 +10,12 @@
 	<body>
 
 		<div id="wrapper">
-			<header>
+			<header class="clear">
+
+				<ul id="tabs">
+					<li data-chat="r1" class="tab active"><a href="#">#1 - Room 1</a><span class="close_tab">&times;</span></li>
+				</ul>
+
 				<nav>
 					<ul>
 						<li><a id="tool_settings" data-pane="settings" href="#">Settings</a></li>
@@ -64,11 +69,11 @@
 				<aside class="title">Settings</aside>
 				<aside class="content">
 					<ul>
+						<li><label><input type="checkbox" checked class="custom"><span></span> Checkbox</label></li>
 						<li><label><input type="checkbox" class="custom"><span></span> Checkbox</label></li>
-						<li><label><input type="checkbox" class="custom"><span></span> Checkbox</label></li>
-
-						<li><label><input type="radio" class="custom"><span></span> Radio Button</label></li>
-						<li><label><input type="radio" class="custom"><span></span> Radio Button</label></li>
+						<li class="sub">You like?</li>
+						<li><label><input type="radio" name="like" checked class="custom"><span></span> Yes</label></li>
+						<li><label><input type="radio" name="like" class="custom"><span></span> No</label></li>
 					</ul>
 				</aside>
 			</section>

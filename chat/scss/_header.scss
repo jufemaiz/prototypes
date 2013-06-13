@@ -7,10 +7,59 @@ header {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	border-bottom: 1px solid darken($color, 4%);
+	border-bottom: 1px solid $border_color;
 
 	#tabs {
-		
+		float: left;
+		margin: 0;
+		padding: 0;
+		line-height: 4em;
+
+		.tab {
+			cursor: pointer;
+			position: relative;
+			background-color: #000;
+			float: left;
+			width: 10em;
+			margin: 0 1em 0 0;
+			padding: 0;
+			opacity: .4;
+
+			a {
+				background-color: rgba($color, .72);
+				box-sizing: border-box;
+				padding: 0 2.5em 0 1em;
+			}
+
+			span {
+				cursor: pointer;
+				font-weight: bold;
+				text-align: center;
+				line-height: 1.325em;
+				font-size: .75em;
+				position: 	absolute;
+				top: 2em;
+				right: 1.25em;
+				height: 1.25em;
+				width: 1.25em;
+				border-radius: 1em;
+				text-shadow: none;
+				color: #fff;
+
+				&:hover {
+					color: darken($border_color, 15%);
+					background-color: $color;
+				}
+			}
+
+			&:hover {
+				opacity: .6;
+			}
+
+			&.active {
+				opacity: 1;
+			}
+		}
 	}
 
 	nav {
@@ -33,6 +82,12 @@ header {
 		background-color: rgba($color, .35);
 		border-bottom-color: transparent;
 
+		#tabs {
+			span {
+				background-color: rgba($color, .75);
+			}
+		}
+
 		nav a {
 			opacity: .5;
 
@@ -40,12 +95,5 @@ header {
 				opacity: 1.0;
 			}
 		}
-	}
-
-	&:before, &:after {
-		clear: both;
-		content: ".";
-		height: 0;
-		visibility: hidden;
 	}
 }

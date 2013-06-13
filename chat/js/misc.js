@@ -27,6 +27,12 @@ function new_chat(id) {
 	return chat_pane;
 }
 
+function new_tab(id,title) {
+	tab = '<li data-chat="'+id+'" class="tab active"><a href="#">'+title+'</a><span class="close_tab">&times;</span></li>';
+
+	return tab;
+}
+
 function resize() {
 	ww = $(window).width();
 	wh = $(window).height();
@@ -36,6 +42,8 @@ function reset() {
 	$("header").removeClass("opac");
 	$(".main").attr("style","").removeClass("effect");
 	$(".overlay").css("opacity","0");
+	$("nav a").removeClass("active");
+	$(".pane").removeClass("open").attr("style","");
 
 	setTimeout(function(){
 		$(".overlay").hide();
@@ -80,6 +88,11 @@ function panes(id) {
 
 }
 
+function change_room(o_room, n_room) {
+	$("*[data-chat='"+o_room+"']").removeClass("active");
+	$("*[data-chat='"+n_room+"']").addClass("active");
+}
+
 $(document).ready(function(){
 
 	$("button").on("click", function(e) {
@@ -88,19 +101,45 @@ $(document).ready(function(){
 
 	$("#rooms a").on("click", function(){
 		n_room = $(this).attr("id");
+		n_room_title = $(this).attr("title");
 		o_room = $(".main.active").attr("data-chat");
+
+		if($(".tab").length == 0) {
+			$("#tool_users").show();
+		}
 
 		if(!$(this).parent().hasClass("active")) {
 			$("#wrapper").append(new_room(n_room));
 			$("#users").append(new_chat(n_room));
+			$("#tabs").append(new_tab(n_room,n_room_title));
 			$(this).parent().addClass("active");
 		}
 
 
-		$("*[data-chat='"+o_room+"']").removeClass("active");
-		$("*[data-chat='"+n_room+"']").addClass("active");
+		change_room(o_room,n_room);
 
 		$("#tool_rooms").trigger("click");
+	});
+
+	$("#tabs").on("click", ".tab", function() {
+		n_room = $(this).attr("data-chat");
+		o_room = $(".main.active").attr("data-chat");
+		change_room(o_room,n_room);
+	});
+
+	$("#tabs").on("click",".close_tab", function(e) {
+		e.stopPropagation();
+
+		closing_room = $(this).parent().attr("data-chat");
+
+		$("*[data-chat='"+closing_room+"']").remove();
+		$("#"+closing_room).parent().removeClass("active");
+
+		if($(".tab").length == 0) {
+			reset();
+			$("#tool_users").hide();
+			$("#tool_rooms").trigger("click");
+		}
 	});
 
 	$("nav a").on("click", function(e) {

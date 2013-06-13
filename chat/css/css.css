@@ -1,11 +1,11 @@
-/* $color: #22d77b; */
+/* $color: #FF4242; */
 /* $color: #2a8cf1; */
 /* $color: #4242ff; */
 /* $color: #fff; */
 /* line 1, ../scss/_base.scss */
 * {
   -webkit-transition-duration: 0.33s;
-  -webkit-animation-timing-function: ease-in;
+  -webkit-animation-timing-function: ease-in-out;
 }
 
 /* line 6, ../scss/_base.scss */
@@ -52,15 +52,15 @@ input[type='text'], textarea {
   -webkit-font-smoothing: antialiased;
 }
 
-/* line 49, ../scss/_base.scss */
+/* line 50, ../scss/_base.scss */
 input[type='radio'], input[type='checkbox'] {
   height: auto;
 }
-/* line 52, ../scss/_base.scss */
+/* line 53, ../scss/_base.scss */
 input[type='radio'].custom, input[type='checkbox'].custom {
   display: none;
 }
-/* line 55, ../scss/_base.scss */
+/* line 56, ../scss/_base.scss */
 input[type='radio'].custom + span, input[type='checkbox'].custom + span {
   margin-right: .5em;
   border-radius: 1em;
@@ -72,27 +72,35 @@ input[type='radio'].custom + span, input[type='checkbox'].custom + span {
   background: #fff;
   border: 2px solid #fff;
 }
-/* line 68, ../scss/_base.scss */
+/* line 69, ../scss/_base.scss */
 input[type='radio'].custom:checked + span, input[type='checkbox'].custom:checked + span {
-  box-shadow: 0 0 0 2px #ff4242 inset;
+  box-shadow: 0 0 0 2px #22d77b inset;
 }
-/* line 75, ../scss/_base.scss */
+/* line 76, ../scss/_base.scss */
 input[type='checkbox'].custom + span {
   border-radius: 0;
 }
 
-/* line 80, ../scss/_base.scss */
+/* line 81, ../scss/_base.scss */
+.clear:before, .clear:after {
+  clear: both;
+  content: ".";
+  height: 0;
+  visibility: hidden;
+}
+
+/* line 89, ../scss/_base.scss */
 ul {
   margin: 2em 0 0;
   padding: 0;
   list-style: none;
 }
-/* line 85, ../scss/_base.scss */
+/* line 94, ../scss/_base.scss */
 ul li {
   margin: 0 0 .5em;
   padding: 0 2em;
 }
-/* line 89, ../scss/_base.scss */
+/* line 98, ../scss/_base.scss */
 ul li a {
   overflow: hidden;
   white-space: nowrap;
@@ -102,16 +110,16 @@ ul li a {
   width: 100%;
 }
 
-/* line 101, ../scss/_base.scss */
+/* line 110, ../scss/_base.scss */
 a:link, a:active, a:visited, a:hover {
   color: #fff;
   text-decoration: none;
   cursor: pointer;
 }
 
-/* line 108, ../scss/_base.scss */
+/* line 117, ../scss/_base.scss */
 #wrapper {
-  background: rgba(255, 66, 66, 0.25);
+  background: rgba(34, 215, 123, 0.25);
   position: absolute;
   top: 0;
   right: 0;
@@ -120,7 +128,7 @@ a:link, a:active, a:visited, a:hover {
   overflow: hidden;
 }
 
-/* line 118, ../scss/_base.scss */
+/* line 127, ../scss/_base.scss */
 .content {
   box-sizing: border-box;
   position: absolute;
@@ -129,16 +137,16 @@ a:link, a:active, a:visited, a:hover {
   width: 100%;
 }
 
-/* line 126, ../scss/_base.scss */
+/* line 135, ../scss/_base.scss */
 .pane {
-  border-right: 1px solid #ff2e2e;
+  border-right: 1px solid #2fb06f;
   background-color: #000;
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
 }
-/* line 134, ../scss/_base.scss */
+/* line 143, ../scss/_base.scss */
 .pane .title {
   box-sizing: border-box;
   padding: 0 .8em;
@@ -147,61 +155,111 @@ a:link, a:active, a:visited, a:hover {
   font-size: 1.25em;
   font-weight: bold;
   line-height: 3.2em;
-  background-color: rgba(255, 66, 66, 0.72);
+  background-color: rgba(34, 215, 123, 0.72);
 }
-/* line 145, ../scss/_base.scss */
+/* line 154, ../scss/_base.scss */
 .pane .content {
-  background-color: #ff4242;
+  background-color: #22d77b;
   top: 4em;
 }
 
 /* line 1, ../scss/_header.scss */
 header {
   height: 4em;
-  background-color: #ff4242;
+  background-color: #22d77b;
   position: fixed;
   z-index: 990;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  border-bottom: 1px solid #ff2e2e;
+  border-bottom: 1px solid #2fb06f;
 }
-/* line 16, ../scss/_header.scss */
+/* line 12, ../scss/_header.scss */
+header #tabs {
+  float: left;
+  margin: 0;
+  padding: 0;
+  line-height: 4em;
+}
+/* line 18, ../scss/_header.scss */
+header #tabs .tab {
+  cursor: pointer;
+  position: relative;
+  background-color: #000;
+  float: left;
+  width: 10em;
+  margin: 0 1em 0 0;
+  padding: 0;
+  opacity: .4;
+}
+/* line 28, ../scss/_header.scss */
+header #tabs .tab a {
+  background-color: rgba(34, 215, 123, 0.72);
+  box-sizing: border-box;
+  padding: 0 2.5em 0 1em;
+}
+/* line 34, ../scss/_header.scss */
+header #tabs .tab span {
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.325em;
+  font-size: .75em;
+  position: absolute;
+  top: 2em;
+  right: 1.25em;
+  height: 1.25em;
+  width: 1.25em;
+  border-radius: 1em;
+  text-shadow: none;
+  color: #fff;
+}
+/* line 49, ../scss/_header.scss */
+header #tabs .tab span:hover {
+  color: #1f7449;
+  background-color: #22d77b;
+}
+/* line 55, ../scss/_header.scss */
+header #tabs .tab:hover {
+  opacity: .6;
+}
+/* line 59, ../scss/_header.scss */
+header #tabs .tab.active {
+  opacity: 1;
+}
+/* line 65, ../scss/_header.scss */
 header nav {
   float: right;
   height: 4em;
   line-height: 4em;
   padding-right: 1em;
 }
-/* line 22, ../scss/_header.scss */
+/* line 71, ../scss/_header.scss */
 header nav ul {
   margin-top: 0;
 }
-/* line 25, ../scss/_header.scss */
+/* line 74, ../scss/_header.scss */
 header nav ul li {
   padding-right: 0;
   float: left;
 }
-/* line 32, ../scss/_header.scss */
+/* line 81, ../scss/_header.scss */
 header.opac {
-  background-color: rgba(255, 66, 66, 0.35);
+  background-color: rgba(34, 215, 123, 0.35);
   border-bottom-color: transparent;
 }
-/* line 36, ../scss/_header.scss */
+/* line 86, ../scss/_header.scss */
+header.opac #tabs span {
+  background-color: rgba(34, 215, 123, 0.75);
+}
+/* line 91, ../scss/_header.scss */
 header.opac nav a {
   opacity: .5;
 }
-/* line 39, ../scss/_header.scss */
+/* line 94, ../scss/_header.scss */
 header.opac nav a.active {
   opacity: 1.0;
-}
-/* line 45, ../scss/_header.scss */
-header:before, header:after {
-  clear: both;
-  content: ".";
-  height: 0;
-  visibility: hidden;
 }
 
 /* line 1, ../scss/_chat.scss */
@@ -209,7 +267,7 @@ header:before, header:after {
   display: none;
   -webkit-transform-origin: left;
   -webkit-transition-duration: 0.33s;
-  -webkit-animation-timing-function: ease-in;
+  -webkit-animation-timing-function: ease-in-out;
   position: absolute;
   z-index: 1;
   top: 0;
@@ -241,11 +299,11 @@ header:before, header:after {
 }
 /* line 34, ../scss/_chat.scss */
 .main .names .content {
-  background-color: rgba(255, 66, 66, 0.93);
+  background-color: rgba(34, 215, 123, 0.93);
 }
 /* line 39, ../scss/_chat.scss */
 .main .chat {
-  background-color: #ff4242;
+  background-color: #22d77b;
   position: absolute;
   top: 4em;
   right: 0;
@@ -266,7 +324,7 @@ header:before, header:after {
 }
 /* line 59, ../scss/_chat.scss */
 .main .msg .content {
-  background-color: rgba(255, 66, 66, 0.72);
+  background-color: rgba(34, 215, 123, 0.72);
 }
 /* line 62, ../scss/_chat.scss */
 .main .msg .content input {
@@ -350,4 +408,8 @@ header:before, header:after {
 /* line 6, ../scss/_settings.scss */
 #settings li {
   padding-left: .75em;
+}
+/* line 9, ../scss/_settings.scss */
+#settings li.sub {
+  margin: 2em 0 .75em;
 }

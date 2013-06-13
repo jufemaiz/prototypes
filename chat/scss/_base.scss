@@ -45,6 +45,7 @@ input[type='text'], textarea {
 	font-feature-settings: 'liga', 'dlig';
 	-webkit-font-smoothing: antialiased;
 }
+
 input {
 	&[type='radio'], &[type='checkbox'] {
 		height: auto;
@@ -74,6 +75,14 @@ input {
 
 	&[type='checkbox'].custom + span {
 		border-radius: 0;
+	}
+}
+.clear {
+	&:before, &:after {
+		clear: both;
+		content: ".";
+		height: 0;
+		visibility: hidden;
 	}
 }
 
@@ -124,7 +133,7 @@ a {
 }
 
 .pane {
-	border-right: 1px solid darken($color, 4%);
+	border-right: 1px solid $border_color;
 	background-color: #000;
 	position: absolute;
 	top: 0;
