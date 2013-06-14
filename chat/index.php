@@ -70,6 +70,7 @@
 					<ul>
 						<li class="active"><a id="r1" href="#" title="#1 - Room 1">Room 1</a></li>
 						<li><a id="r2" href="#" title="#2 - Room 2 has a long name">Room 2 has a long name</a></li>
+						<li><a id="r3" href="#" title="#3 - Room 3">Room 3</a></li>
 					</ul>
 				</aside>
 			</section>

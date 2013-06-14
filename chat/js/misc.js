@@ -177,16 +177,24 @@ $(document).ready(function(){
 
 		closing_room = $(this).parent().attr("data-chat");
 
-		$("*[data-chat='"+closing_room+"']").remove();
-		$("#"+closing_room).parent().removeClass("active");
+		$("*[data-chat='"+closing_room+"']").remove();//removes room from dom
+		$("#"+closing_room).parent().removeClass("active");//removes active state from rooms list
 
 		if($(".tab").length == 0) {
 			reset();
 			$("#tool_users").hide();
 			$("#tool_rooms").trigger("click");
-		}
+		} else if(closing_room != $(".tab.active").attr("data-chat")) {
+			alert("background");
 
-		console.log($(this).closest("li").siblings("li"));
+			//////broken/////
+
+			return false;//means you are closing a room that's not active
+		} else {
+			alert("selecting soem other room");
+			new_active = $("#tabs li:first-child").attr("data-chat");
+			$("*[data-chat='"+new_active+"']").addClass("active");
+		}
 	});
 
 	$("nav a").on("click", function(e) {
