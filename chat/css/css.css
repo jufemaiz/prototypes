@@ -164,6 +164,39 @@ a:link, a:active, a:visited, a:hover {
   top: 4em;
 }
 
+/* line 160, ../scss/_base.scss */
+#right_menu {
+  -webkit-transition-duration: 0;
+  display: none;
+  position: absolute;
+  z-index: 2000;
+  background-color: #000;
+}
+/* line 167, ../scss/_base.scss */
+#right_menu ul {
+  margin: 0;
+  padding: 1em 0 .5em;
+  background-color: rgba(255, 255, 255, 0.72);
+  min-width: 6em;
+}
+/* line 173, ../scss/_base.scss */
+#right_menu ul li {
+  display: none;
+  cursor: pointer;
+}
+/* line 177, ../scss/_base.scss */
+#right_menu ul li:hover {
+  background-color: white;
+}
+/* line 183, ../scss/_base.scss */
+#right_menu.users .users {
+  display: block;
+}
+/* line 187, ../scss/_base.scss */
+#right_menu.settings .settings {
+  display: block;
+}
+
 /* line 1, ../scss/_header.scss */
 header {
   height: 4em;

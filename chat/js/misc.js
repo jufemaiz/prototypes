@@ -1,4 +1,4 @@
-var ww, wh, pane_size, move, pane_num, margin = 32, duration = 333;
+var ww, wh, mx, my, pane_size, move, pane_num, margin = 32, duration = 333;
 
 function new_room(id) {
 	style = $(".main.active").attr("style");
@@ -33,9 +33,14 @@ function new_tab(id,title) {
 	return tab;
 }
 
-function resize() {
+function resize(e) {
 	ww = $(window).width();
 	wh = $(window).height();
+
+	if(e) {
+		mx = e.pageX;
+		my = e.pageY;
+	}
 }
 
 function reset() {
@@ -95,8 +100,48 @@ function change_room(o_room, n_room) {
 
 $(document).ready(function(){
 
-	$("button").on("click", function(e) {
-		
+	$(".rc").bind("contextmenu",function(e) {
+		e.preventDefault();
+		resize(e);
+
+		menu = $(this).closest(".rcp").attr("id");
+
+		$("#right_menu").removeAttr("class").addClass(menu).show();
+
+		mw = $("#right_menu").width();
+		mh = $("#right_menu").height();
+
+		if(mw + mx > ww) mx = mx - mw;
+
+		if(mh + my > wh) my = my - mh;
+
+		$("#right_menu").css({top:my, left:mx});
+	})
+
+	$("#right_menu li").click(function(){
+		action = $(this).attr("data-rc-action");
+
+		switch(action) {
+			case "sample_action1":
+				alert(action);
+				break;
+
+			case "sample_action2":
+				alert(action);
+				break;
+	
+			case "sample_action3":
+				alert(action);
+				break;
+	
+			case "sample_action4":
+				alert(action);
+				break;
+		}
+	});
+
+	$(document).click(function(e) {
+		$("#right_menu").hide();
 	});
 
 	$("#rooms a").on("click", function(){

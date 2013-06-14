@@ -155,5 +155,36 @@ a {
 		background-color: $color;
 		top: 4em;
 	}
+}
 
+#right_menu {
+	-webkit-transition-duration: 0;
+	display: none;
+	position: absolute;
+	z-index: 2000;
+	background-color: #000;
+
+	ul {
+		margin: 0;
+		padding: 1em 0 .5em;
+		background-color: rgba($color, .72);
+		min-width: 6em;
+
+		li {
+			display: none;
+			cursor: pointer;
+
+			&:hover {
+				background-color: $color;
+			}
+		}
+	}
+
+	&.users .users{
+		display: block;
+	}
+
+	&.settings .settings {
+		display: block;
+	}
 }

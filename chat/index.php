@@ -9,6 +9,15 @@
 	</head>
 	<body>
 
+		<div id="right_menu">
+			<ul>
+				<li class="users" data-rc-action="sample_action1">User Item</li>
+				<li class="settings" data-rc-action="sample_action2">Settings Item</li>
+				<li class="rooms" data-rc-action="sample_action2">Rooms Item</li>
+				<li class="users rooms" data-rc-action="sample_action4">Rooms & Users Item</li>
+			</ul>
+		</div>
+
 		<div id="wrapper">
 			<header class="clear">
 
@@ -42,15 +51,15 @@
 				</article>
 			</section>
 
-			<section id="users" class="pane">
+			<section id="users" class="pane rcp">
 				<aside class="title">Users</aside>
 				<aside class="content active" data-chat="r1">
 					<ul>
-						<li class="op voice"><a href="#" title="Tel Smith">OP</a></li>
-						<li class="hop"><a href="#" title="Aaron Linkous">Half Op</a></li>
-						<li class="voice"><a href="#" title="Aaron Linkous">Normal</a></li>
-						<li class="listen"><a href="#" title="Aaron Linkous">listen</a></li>
-						<li class="afk"><a href="#" title="Aaron Linkous">afk</a></li>
+						<li class="op voice"><a href="#" title="Tel Smith" class="rc">OP</a></li>
+						<li class="hop"><a href="#" title="Aaron Linkous" class="rc">Half Op</a></li>
+						<li class="voice"><a href="#" title="Aaron Linkous" class="rc">Normal</a></li>
+						<li class="listen"><a href="#" title="Aaron Linkous" class="rc">listen</a></li>
+						<li class="afk"><a href="#" title="Aaron Linkous" class="rc">afk</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -65,15 +74,15 @@
 				</aside>
 			</section>
 
-			<section id="settings" class="pane">
+			<section id="settings" class="pane rcp">
 				<aside class="title">Settings</aside>
 				<aside class="content">
 					<ul>
-						<li><label><input type="checkbox" checked class="custom"><span></span> Checkbox</label></li>
-						<li><label><input type="checkbox" class="custom"><span></span> Checkbox</label></li>
+						<li><label class="rc"><input type="checkbox" checked class="custom"><span></span> Checkbox</label></li>
+						<li><label class="rc"><input type="checkbox" class="custom"><span></span> Checkbox</label></li>
 						<li class="sub">You like?</li>
-						<li><label><input type="radio" name="like" checked class="custom"><span></span> Yes</label></li>
-						<li><label><input type="radio" name="like" class="custom"><span></span> No</label></li>
+						<li><label class="rc"><input type="radio" name="like" checked class="custom"><span></span> Yes</label></li>
+						<li><label class="rc"><input type="radio" name="like" class="custom"><span></span> No</label></li>
 					</ul>
 				</aside>
 			</section>
