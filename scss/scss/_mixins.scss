@@ -1,0 +1,10 @@
+@mixin button($btn_color) {
+	background-color: $btn_color;
+	text-shadow: 1px 1px 1px darken($btn_color, 10%);
+	color: #fff;
+}
+
+@mixin dbl($btn_color) {
+	border: 2px solid $btn_color;
+	box-shadow: 0 0 0 2px #fff inset;
+}

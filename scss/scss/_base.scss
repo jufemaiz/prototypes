@@ -1,0 +1,66 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	margin: 10px;
+	font-size: 14px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.clear {
+	clear: both;
+	height: 50px;
+}
+
+a.button_link {
+	text-decoration: none;
+	text-align: center;
+}
+
+button, input[type="button"], a.button_link {
+	float: left;
+	font-size: 1em;
+	font-family: arial;
+	display: block;
+	-webkit-appearance: none;
+	border-radius: $radius;
+	padding: .5em 1.5em;
+	margin: 0;
+	border: none;
+	margin-right: 10px;
+
+	&.primary {
+		@include button($primary);
+
+		&.dbl {
+			@include dbl($primary);
+		}
+	}
+
+	&.secondary {
+		@include button($secondary);
+
+		&.dbl {
+			@include dbl($secondary);
+		}
+	}
+
+	&.alternate {
+		@include button($alternate);
+
+		&.dbl {
+			@include dbl($alternate);
+		}
+	}
+
+	&.full_width {
+		width: 100%;
+		margin: 0;
+		font-size: 1.25em;
+	}
+}

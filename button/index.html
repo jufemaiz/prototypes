@@ -1,0 +1,257 @@
+<!DOCTYPE  HTML>
+<html>
+	<head>
+		<title></title>
+
+
+		<style>
+
+			body * {
+				box-sizing: border-box;
+				position: relative;
+				height: 100%;
+				width: 100%;
+				display: block;
+				border-radius: 100%;
+			}
+
+			#inset {
+				width: 336px;
+				height: 336px;
+				padding: 20px;
+				background-image: linear-gradient(bottom, #FCFCFC 0%, #DCDCDC 100%);
+				background-image: -o-linear-gradient(bottom, #FCFCFC 0%, #DCDCDC 100%);
+				background-image: -moz-linear-gradient(bottom, #FCFCFC 0%, #DCDCDC 100%);
+				background-image: -webkit-linear-gradient(bottom, #FCFCFC 0%, #DCDCDC 100%);
+				background-image: -ms-linear-gradient(bottom, #FCFCFC 0%, #DCDCDC 100%);
+				
+				background-image: -webkit-gradient(
+					linear,
+					left bottom,
+					left top,
+					color-stop(0, #FCFCFC),
+					color-stop(1, #DCDCDC)
+				);
+			}
+
+			#whole_button {
+				padding: 3px;
+				background-image: linear-gradient(bottom, #FF7C01 0%, #FFE607 100%);
+				background-image: -o-linear-gradient(bottom, #FF7C01 0%, #FFE607 100%);
+				background-image: -moz-linear-gradient(bottom, #FF7C01 0%, #FFE607 100%);
+				background-image: -webkit-linear-gradient(bottom, #FF7C01 0%, #FFE607 100%);
+				background-image: -ms-linear-gradient(bottom, #FF7C01 0%, #FFE607 100%);
+				
+				background-image: -webkit-gradient(
+					linear,
+					left bottom,
+					left top,
+					color-stop(0, #FF7C01),
+					color-stop(1, #FFE607)
+				);
+
+			}
+
+			#ring {
+				padding: 20px;
+				background-image: linear-gradient(bottom, #FFA201 0%, #FFD60A 100%);
+				background-image: -o-linear-gradient(bottom, #FFA201 0%, #FFD60A 100%);
+				background-image: -moz-linear-gradient(bottom, #FFA201 0%, #FFD60A 100%);
+				background-image: -webkit-linear-gradient(bottom, #FFA201 0%, #FFD60A 100%);
+				background-image: -ms-linear-gradient(bottom, #FFA201 0%, #FFD60A 100%);
+				
+				background-image: -webkit-gradient(
+					linear,
+					left bottom,
+					left top,
+					color-stop(0, #FFA201),
+					color-stop(1, #FFD60A)
+				);
+			}
+
+			#background {
+				padding: 8px;
+				background-image: linear-gradient(bottom, #DC5C00 0%, #DC4600 100%);
+				background-image: -o-linear-gradient(bottom, #DC5C00 0%, #DC4600 100%);
+				background-image: -moz-linear-gradient(bottom, #DC5C00 0%, #DC4600 100%);
+				background-image: -webkit-linear-gradient(bottom, #DC5C00 0%, #DC4600 100%);
+				background-image: -ms-linear-gradient(bottom, #DC5C00 0%, #DC4600 100%);
+				
+				background-image: -webkit-gradient(
+					linear,
+					left bottom,
+					left top,
+					color-stop(0, #DC5C00),
+					color-stop(1, #DC4600)
+				);
+			}
+
+			#button_bevel_rim {
+				padding: 3px;
+				background-image: linear-gradient(bottom, #FF7801 0%, #FFEA08 100%);
+				background-image: -o-linear-gradient(bottom, #FF7801 0%, #FFEA08 100%);
+				background-image: -moz-linear-gradient(bottom, #FF7801 0%, #FFEA08 100%);
+				background-image: -webkit-linear-gradient(bottom, #FF7801 0%, #FFEA08 100%);
+				background-image: -ms-linear-gradient(bottom, #FF7801 0%, #FFEA08 100%);
+				
+				background-image: -webkit-gradient(
+					linear,
+					left bottom,
+					left top,
+					color-stop(0, #FF7801),
+					color-stop(1, #FFEA08)
+				);
+
+
+				box-shadow: 0 0 15px rgba(164, 30, 3, .75), 0 5px 5px #a41e03;
+			}
+
+			#button_bevel {
+				padding: 15px;
+				background-image: linear-gradient(bottom, #FFA201 0%, #FFD505 100%);
+				background-image: -o-linear-gradient(bottom, #FFA201 0%, #FFD505 100%);
+				background-image: -moz-linear-gradient(bottom, #FFA201 0%, #FFD505 100%);
+				background-image: -webkit-linear-gradient(bottom, #FFA201 0%, #FFD505 100%);
+				background-image: -ms-linear-gradient(bottom, #FFA201 0%, #FFD505 100%);
+				
+				background-image: -webkit-gradient(
+					linear,
+					left bottom,
+					left top,
+					color-stop(0, #FFA201),
+					color-stop(1, #FFD505)
+				);
+			}
+			
+			#button_rim {
+				padding: 3px;
+				background-image: linear-gradient(bottom, #FFC905 0%, #FF6B01 100%);
+				background-image: -o-linear-gradient(bottom, #FFC905 0%, #FF6B01 100%);
+				background-image: -moz-linear-gradient(bottom, #FFC905 0%, #FF6B01 100%);
+				background-image: -webkit-linear-gradient(bottom, #FFC905 0%, #FF6B01 100%);
+				background-image: -ms-linear-gradient(bottom, #FFC905 0%, #FF6B01 100%);
+				
+				background-image: -webkit-gradient(
+					linear,
+					left bottom,
+					left top,
+					color-stop(0, #FFC905),
+					color-stop(1, #FF6B01)
+				);
+			}
+			
+			#button {
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: box;
+				display: flex;
+				-webkit-box-align: center;
+				box-align: center;
+				flex-align: center;
+				-webkit-box-pack: center;
+				box-pack: center;
+				flex-pack: center;
+				-webkit-align-items: center;
+
+				padding: 10px;
+				background-image: linear-gradient(bottom, #FFC004 0%, #FF7801 100%);
+				background-image: -o-linear-gradient(bottom, #FFC004 0%, #FF7801 100%);
+				background-image: -moz-linear-gradient(bottom, #FFC004 0%, #FF7801 100%);
+				background-image: -webkit-linear-gradient(bottom, #FFC004 0%, #FF7801 100%);
+				background-image: -ms-linear-gradient(bottom, #FFC004 0%, #FF7801 100%);
+				
+				background-image: -webkit-gradient(
+					linear,
+					left bottom,
+					left top,
+					color-stop(0, #FFC004),
+					color-stop(1, #FF7801)
+				);
+			}
+
+			#label {
+				-webkit-box-flex: 1;
+				-webkit-flex: 1;
+				box-flex: 1;
+				flex: 1;
+
+				height: auto;
+				position: relative;
+				display: block;
+				font-size: 50px;
+				text-align: center;
+				color: #dc5100;
+				font-weight: bold;
+				font-family: arial;
+				text-shadow: -1px -1px 3px rgba(166,67,0, .9), 1px 1px 2px rgba(255,212,5, .3)
+			}
+
+			#highlight1 {
+				position: absolute;
+				left: 0;
+				top: 0;
+				background: #fff;
+				opacity: .3;
+				-webkit-clip-path: polygon(
+					50% 78.25%, 63.75% 76.25%, 74.25% 71%, 83% 65%, 88% 59%, 91.75% 57.5%, 94% 59%, 95% 62.25%, 91% 71.75%, 80.5% 84.25%, 69.5% 90.5%, 60.5% 94.25%, 50% 95%,
+					40.5% 94.25%, 30.5% 90.5%, 19.5% 84.25%, 9% 71.25%, 5% 62.25%, 6% 59%, 8.25% 57.5%, 12% 59%, 17% 65%, 25.75% 71%, 36.25% 76.25%
+				);
+			}
+
+			#highlight2 {
+				position: absolute;
+				left: 0;
+				top: 0;
+				background: #fff;
+				opacity: .15;
+				-webkit-clip-path: polygon(
+					50% 5%, 58.75% 5.875%, 65.75% 7.75%, 73.5% 11.375%, 79.125% 15.375%, 86% 22.75%, 93% 35.625%, 92.25% 37.5%, 87.75% 40.5%, 85% 40.5%, 74.25% 33.75%, 61.75% 30%, 50% 28.9375%,
+					38.25% 30%, 25.75% 33.75%, 15% 40.5%, 12.75% 40.5%, 7.75% 37.5%, 7% 35.625%, 14% 22.75%, 20.875% 15.375%, 26.5% 11.375%, 34.25% 7.75%, 41.25% 5.875%
+				);
+			}
+
+			#background:hover {
+				padding: 16px;
+			}
+
+			#background:hover {
+				-webkit-transition-duration: .05s;
+				-webkit-animation-timing-function: ease-in-out;
+			}
+
+			#background:hover #button_bevel_rim {
+				box-shadow: 0 0 5px rgba(164, 30, 3, .95), 0 3px 3px #a41e03;
+			}
+
+			#background:hover #label {
+				font-size: 45px;
+			}
+		</style>
+
+
+	</head>
+	<body>
+
+		<div id="inset">
+			<div id="whole_button">
+				<div id="ring">
+					<div id="background">
+						<div id="button_bevel_rim">
+							<div id="button_bevel">
+								<div id="button_rim">
+									<div id="button">
+										<div id="label">
+											FART
+										</div>
+										<div id="highlight2"></div>
+										<div id="highlight1"></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,81 @@
+/* line 1, ../scss/_base.scss */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 6, ../scss/_base.scss */
+body {
+  margin: 10px;
+  font-size: 14px;
+}
+
+/* line 11, ../scss/_base.scss */
+* {
+  box-sizing: border-box;
+}
+
+/* line 15, ../scss/_base.scss */
+.clear {
+  clear: both;
+  height: 50px;
+}
+
+/* line 20, ../scss/_base.scss */
+a.button_link {
+  text-decoration: none;
+  text-align: center;
+}
+
+/* line 25, ../scss/_base.scss */
+button, input[type="button"], a.button_link {
+  float: left;
+  font-size: 1em;
+  font-family: arial;
+  display: block;
+  -webkit-appearance: none;
+  border-radius: 5px;
+  padding: .5em 1.5em;
+  margin: 0;
+  border: none;
+  margin-right: 10px;
+}
+/* line 37, ../scss/_base.scss */
+button.primary, input[type="button"].primary, a.button_link.primary {
+  background-color: #540ef2;
+  text-shadow: 1px 1px 1px #430ac3;
+  color: #fff;
+}
+/* line 40, ../scss/_base.scss */
+button.primary.dbl, input[type="button"].primary.dbl, a.button_link.primary.dbl {
+  border: 2px solid #540ef2;
+  box-shadow: 0 0 0 2px #fff inset;
+}
+/* line 45, ../scss/_base.scss */
+button.secondary, input[type="button"].secondary, a.button_link.secondary {
+  background-color: #51d119;
+  text-shadow: 1px 1px 1px #3fa314;
+  color: #fff;
+}
+/* line 48, ../scss/_base.scss */
+button.secondary.dbl, input[type="button"].secondary.dbl, a.button_link.secondary.dbl {
+  border: 2px solid #51d119;
+  box-shadow: 0 0 0 2px #fff inset;
+}
+/* line 53, ../scss/_base.scss */
+button.alternate, input[type="button"].alternate, a.button_link.alternate {
+  background-color: #109cdd;
+  text-shadow: 1px 1px 1px #0d7aad;
+  color: #fff;
+}
+/* line 56, ../scss/_base.scss */
+button.alternate.dbl, input[type="button"].alternate.dbl, a.button_link.alternate.dbl {
+  border: 2px solid #109cdd;
+  box-shadow: 0 0 0 2px #fff inset;
+}
+/* line 61, ../scss/_base.scss */
+button.full_width, input[type="button"].full_width, a.button_link.full_width {
+  width: 100%;
+  margin: 0;
+  font-size: 1.25em;
+}
