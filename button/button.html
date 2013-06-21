@@ -11,7 +11,7 @@
 				fart.init();
 
 				$("#background").click(function() {
-					fart.play('ripper');
+					fart.play('trumpet');
 				});
 			});
 		</script>
@@ -156,6 +156,7 @@
 			}
 			
 			#button {
+display: -moz-box;
 				display: -webkit-box;
 				display: -webkit-flex;
 				display: box;
@@ -238,17 +239,17 @@
 				);
 			}
 
-			#background:hover {
+			#background:active {
 				padding: 16px;
 				-webkit-transition-duration: .05s;
 				-webkit-animation-timing-function: ease-in-out;
 			}
 
-			#background:hover #button_bevel_rim {
+			#background:active #button_bevel_rim {
 				box-shadow: 0 0 5px rgba(164, 30, 3, .95), 0 3px 3px #a41e03;
 			}
 
-			#background:hover #label {
+			#background:active #label {
 				font-size: 45px;
 			}
 
