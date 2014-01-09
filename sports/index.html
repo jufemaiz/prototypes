@@ -1,0 +1,39 @@
+<!DOCTYPE  HTML>
+<html>
+	<head>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/css.css" media="screen" />
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="jquery.imgCenter.minified.js"></script>
+
+		<script>
+			$(document).ready(function(){
+				$(".media-box.picture img").each(function(){
+					$(this).imgCenter();
+				});
+			});
+		</script>
+	</head>
+	<body>
+
+		<Style>
+			.media-box {
+				height: 415px;
+				width: 340px;
+				background: red;
+				overflow: hidden;
+			}
+
+			.media-box img {
+				display: block;
+			}
+		</style>
+		
+
+		<div class="media-box picture">
+			<img src="http://amberjmiller.com/stolzoffsportworks/img/harrison.png" />
+		</div>
+
+
+	</body>
+</html>

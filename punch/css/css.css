@@ -1,0 +1,54 @@
+/* line 17, ../scss/css.scss */
+html, body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-feature-settings: 'liga', 'dlig';
+  -moz-font-feature-settings: 'liga', 'dlig';
+  font-feature-settings: 'liga', 'dlig';
+  -webkit-font-smoothing: antialiased;
+}
+
+/* line 25, ../scss/css.scss */
+html, body {
+  background-color: #00bfff;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 34, ../scss/css.scss */
+#rate_wrapper {
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: box;
+}
+
+/* line 41, ../scss/css.scss */
+.rating {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  box-flex: 1;
+  flex: 1;
+  height: 100%;
+}
+/* line 45, ../scss/css.scss */
+.rating.active {
+  -webkit-box-flex: 4;
+  -webkit-flex: 4;
+  box-flex: 4;
+  flex: 4;
+  background-color: #3fff00;
+}
+/* line 50, ../scss/css.scss */
+.rating.one_away {
+  -webkit-box-flex: 1.5;
+  -webkit-flex: 1.5;
+  box-flex: 1.5;
+  flex: 1.5;
+  background-color: #3fff7f;
+}
+/* line 55, ../scss/css.scss */
+.rating.two_away {
+  background-color: #3fbfbf;
+}

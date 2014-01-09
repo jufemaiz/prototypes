@@ -1,0 +1,257 @@
+$container_margin: 10px;
+$row_margin: 20px;
+$dark_color: #333;
+$ghosted: #b6b6b6;
+$border: #d5d5d5;
+$alert: #d51740;
+$bright: #0fa2ff;
+
+%animated {
+	-webkit-transition: all 0.125s ease-in-out;
+	transition: all 0.125s ease-in-out;	
+
+}
+
+%smoothing {
+	text-rendering: optimizeLegibility;
+	-webkit-font-feature-settings: 'liga', 'dlig';
+	-moz-font-feature-settings: 'liga', 'dlig';
+	font-feature-settings: 'liga', 'dlig';
+	-webkit-font-smoothing: antialiased;
+}
+
+html, body {
+	@extend %smoothing;
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	font-size: 16px;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	line-height: 1.5em;
+	color: $dark_color;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.small {
+	font-size: .85em;
+	color: darken($ghosted, 25%);
+}
+
+.clear {
+	clear: both;
+}
+
+h1 {
+	@extend %smoothing;
+	font-size: 18px;
+	line-height: 1.5em;
+	color: $alert;
+	text-align: center;
+}
+
+#steps {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	
+	li {
+		background-color: $border;
+		height: 2px;
+		line-height: 24px;
+		text-align: center;
+		margin: 12px 4px;
+		
+		&.step {
+			height: 24px;
+			max-width: 24px;
+			border-radius: 50%;
+			margin: 0;
+		}
+
+		&.active {
+			color: #fff;
+			background-color: $alert;
+		}
+
+		&:first-child, &:last-child {
+			background-color: transparent;
+		}
+	}
+}
+
+.row {
+	position: relative;
+	margin: 0 $container_margin $row_margin;
+
+	&.full_width {
+		width: auto;
+		margin-left: 0;
+		margin-right: 0;
+		border-radius: 0;
+	}
+
+	&.no_margin {
+		margin-bottom: 0;
+	}
+}
+
+.bt {
+	border-top: 1px solid $border;
+}
+
+.bb {
+	border-bottom: 1px solid $border;
+}
+
+.split {
+	display: -webkit-box;
+	display: box;
+
+	> * {
+		position: relative;
+		width: 0; //this is required for some really odd reason
+		margin-right: $container_margin;
+		-webkit-box-flex: 1;
+		-webkit-flex: 1;
+		box-flex: 1;
+		flex: 1;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+
+	> .extra_width {
+		-webkit-box-flex: 2;
+		-webkit-flex: 2;
+		box-flex: 2;
+		flex: 2;
+	}
+
+	> .input_holder {
+		margin-right: 0;
+
+		&:not(:first-child) {
+			padding-left: $container_margin;
+		}
+	}
+}
+
+input, select {
+	position: relative;
+	@extend %smoothing;
+	background-color: transparent;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 500;
+	font-size: 16px;
+	outline: none;
+	width: 100%;
+	height: 32px;
+	border: none;
+	box-shadow: none;
+	padding: $container_margin 0 0;
+	-webkit-appearance: none;
+
+	&::-webkit-input-placeholder, &::placeholder {
+		color: $ghosted
+	}
+}
+
+select {
+	background-image: url(../images/fw_drop_down@2x.png);
+	background-position: right 7px;
+	background-repeat: no-repeat;
+	background-size: 24px 24px;
+	color: $ghosted;
+	padding-top: $container_margin;
+	padding-right: $container_margin*2.5;
+}
+
+.has_value {
+	color: $dark_color;
+}
+
+.input_holder {
+	border-left:1px solid $border;
+	padding: $container_margin/2 0 $container_margin/1.5;
+
+	&:first-child {
+		border-left-color: transparent;
+	}
+
+	.label {
+		@extend %animated;
+		opacity: 0;
+		position: absolute;
+		z-index: -1;
+		top: $container_margin;
+		left: 1px;
+		color: $bright;
+		font-weight: 500;
+		font-size: 10px;
+	}
+
+	&:not(:first-child) {
+		.label {
+			left: $container_margin + 1;
+		}
+	}
+
+	.has_value {
+		+ .label {
+			top: -4px;
+			opacity: 1;
+		}
+	}
+
+	&.has_error {
+		background-color: $alert;
+
+		input, .label {
+			color: #fff;
+		}
+
+		input::-webkit-input-placeholder, &::placeholder {
+			color: rgba(#fff, .5);
+		}
+	}
+}
+#spacer {
+	height: 60px;
+}
+
+#primary_cta {
+	bottom: 0;
+	z-index: 999;
+	height: 60px;
+	line-height: 60px;
+	width: 100%;
+	border-top: 1px solid #fff;
+}
+
+#price {
+	margin-right: 0;
+	background-color: $border;
+	text-align: center;
+}
+
+#add_to_cart {
+	text-align: center;
+	color: #fff;
+	font-weight: 700;
+	background-color: $alert;
+	min-width: 160px;
+}
+
+.fixed {
+	position: fixed;
+}
+
+.fix_fixed .fixed {
+	display: none;
+}
