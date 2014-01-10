@@ -71,7 +71,7 @@ function speaker_placement(){
 			x = +($(this).find("#x").val()) || dims[0]/2;
 		}
 			
-		z = $(this).attr("id") != "listener" ? +($(this).find("#z").val()) || 24 : +($(this).find("#z").val()) || 84;
+		z = $(this).attr("id") != "listener" ? +($(this).find("#z").val()) || 24 : +($(this).find("#z").val()) || dims[2]*.62;
 
 		var pos = [x,z];
 		placements.push(pos);
