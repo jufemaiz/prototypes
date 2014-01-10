@@ -71,9 +71,9 @@ function speaker_placement(){
 			x = +($(this).find("#x").val()) || dims[0]/2;
 		}
 			
-		z = $(this).attr("id") != "listener" ? +($(this).find("#z").val()) || 24 : +($(this).find("#z").val()) || dims[2]*.62;
+		z = $(this).attr("id") != "listener" ? +($(this).find("#z").val()) || 24 : +($(this).find("#z").val()) || 84;
 
-		var pos = [x, z];
+		var pos = [x,z];
 		placements.push(pos);
 	});
 
@@ -86,14 +86,16 @@ function speaker_placement(){
 		});
 
 		var pos = i > 0 ? ((placements[0][1] - placements[i][1]) * placements[0][0]) / (placements[i][0] + placements[0][0]) : 0;
+		pos =  placements[0][1] - pos;
+
 		placements[i].push(pos);
 
 		if(id != "listener"){
-			$('<div id="'+id+'_ref" class="reflection"><div class="inputs"><input type="text" disabled value="'+(placements[0][1] - placements[i][2])+'" /></div></div>').appendTo("#room").css("top", (placements[0][1] - placements[i][2])*scale).css(wall,"0");
+			$('<div id="'+id+'_ref" class="reflection"><div class="inputs"><input type="text" disabled value="'+(placements[i][2])+'" /></div></div>').appendTo("#room").css("top", (placements[i][2])*scale).css(wall,"0");
 		}
 
 		if(id == "c") {
-			$('<div id="'+id+'_ref" class="reflection"><div class="inputs"><input type="text" disabled value="'+(placements[0][1] - placements[i][2])+'" /></div></div>').appendTo("#room").css("top", (placements[0][1] - placements[i][2])*scale).css(wall,"calc(100% - 10px)");
+			$('<div id="'+id+'_ref" class="reflection"><div class="inputs"><input type="text" disabled value="'+(placements[i][2])+'" /></div></div>').appendTo("#room").css("top", (placements[i][2])*scale).css(wall,"calc(100% - 10px)");
 		}
 	});
 
