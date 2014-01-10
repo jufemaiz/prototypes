@@ -33,12 +33,19 @@
 
 			#room > div {
 				box-sizing: border-box;
-				margin-left: -20px;
 				width: 40px;
 				height: 40px;
 				padding: 5px;
 				position: absolute;
 				background-color: blue;
+			}
+
+			#room > .placement.left {
+				margin-left: -20px;
+			}
+
+			#room > .placement.right {
+				margin-right: -20px;
 			}
 
 			#room .inputs {
@@ -64,11 +71,10 @@
 			}
 
 			#room .reflection {
-				background-color: red;
+				background-color: rgba(228,41,81, .5);
 				width: 10px;
 				height: 80px;
 				margin-top: -40px;
-				margin-left: 0;
 			}
 
 			#room input {
@@ -130,16 +136,30 @@
 			<div id="x_label" class="room_label">X</div>
 			<div id="z_label" class="room_label">Z</div>
 
-			<div id="listener">
+			<div id="listener" class="placement left">
 				<div class="inputs">
 					<input id="x" value="72" placeholder="x">
-					<input id="z" value="84" placeholder="z">
+					<input id="z" value="156" placeholder="z">
 				</div>
 			</div>
 
-			<div id="fl" class="front speaker">
+			<div id="fl" class="front speaker left placement">
 				<div class="inputs">
 					<input id="x" value="24" placeholder="X">
+					<input id="z" value="24" placeholder="Z">
+				</div>
+			</div>
+
+			<div id="fr" class="front speaker right placement">
+				<div class="inputs">
+					<input id="x" value="24" placeholder="X">
+					<input id="z" value="24" placeholder="Z">
+				</div>
+			</div>
+
+			<div id="c" class="front speaker left placement">
+				<div class="inputs">
+					<input id="x" value="72" placeholder="X">
 					<input id="z" value="24" placeholder="Z">
 				</div>
 			</div>

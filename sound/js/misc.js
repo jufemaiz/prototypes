@@ -1,10 +1,10 @@
-var dims = [], modes = [], speaker_pos = [], scale = 3, room_w, room_h, room_l, system;
+var dims = [], modes = [], placements = [], scale = 3, room_w, room_h, room_l, system;
 
-function intersection(array1, array2) {
+function intersection(array1, array2){
 	return array1.filter(function (n) { return array2.indexOf(n) !== -1; });
 }
 
-function multi_intersection(arrays) {
+function multi_intersection(arrays){
 	var result = [],
 		i = j = k = 0,
 		inter = null;
@@ -20,9 +20,9 @@ function multi_intersection(arrays) {
 	return uniq(result);
 }
 
-function uniq(array) {
+function uniq(array){
 	var result = [];
-	for (var i = 0; i < array.length; i++) {
+	for (var i = 0; i < array.length; i++){
 		if (result.indexOf(array[i]) === -1) result.push(array[i]);
 	}
 
@@ -33,7 +33,7 @@ function uniq(array) {
 	});
 }
 
-function room_modes() {
+function room_modes(){
 	$("#axial_resonance_width").text("");
 	$("#axial_resonance_height").text("");
 	$("#axial_resonance_length").text("");
@@ -61,28 +61,42 @@ function room_modes() {
 function speaker_placement(){
 	$(".reflection").remove();
 
-	var listener_x = +($("#listener #x").val());
-	var listener_z = +($("#listener #z").val());
+	placements = [];
+	$(".placement").each(function(i,point){
+		var pos = [+($(this).find("#x").val()), +($(this).find("#z").val())];
+		placements.push(pos);
+	});
 
-	var fl_x = +($("#fl #x").val());
-	var fl_z = +($("#fl #z").val());
+	$.each(placements, function(i){
+		ref = $(".placement:eq("+i+")").attr("id");
+		wall = $("#"+ref).hasClass("left") ? "left" : "right";
 
-	$("#listener").css({left: listener_x*scale, top: listener_z*scale});
-	$("#fl").css({left: fl_x*scale, top: fl_z*scale});
+		$.each(placements[i], function(){
+			$("#"+ref).css(wall,placements[i][0]*scale).css("top", placements[i][1]*scale);
+		});
 
-	fl = (((listener_z - fl_z) * listener_x) / (fl_x + listener_x));
+		var pos = i > 0 ? ((placements[0][1] - placements[i][1]) * placements[0][0]) / (placements[i][0] + placements[0][0]) : 0;
+		placements[i].push(pos);
 
-	$('<div id="fl_r" class="reflection"></div>').appendTo("#room").css({top: ((listener_z - fl))*scale});
+		if(ref != "listener"){
+			$('<div id="'+ref+'_ref" class="reflection"></div>').appendTo("#room").css("top", ((placements[0][1] - placements[i][2]))*scale).css(wall,"0");
+		}
+
+		if(ref == "c") {
+			$('<div id="'+ref+'_ref" class="reflection"></div>').appendTo("#room").css("top", ((placements[0][1] - placements[i][2]))*scale).css(wall,"calc(100% - 10px)");
+		}
+	});
+
 }
 
-function build_room() {
+function build_room(){
 	$("#room").show().css({width: dims[0]*scale, height:dims[2]*scale});
 
 	speaker_placement();
 }
 
 $(document).ready(function(){
-	$("#room_dimensions").on("click", function(e) {
+	$("#room_dimensions").on("click", function(e){
 		room_w = +($("#room_width").val());
 		room_h = +($("#room_height").val());
 		room_l = +($("#room_length").val());
@@ -94,6 +108,7 @@ $(document).ready(function(){
 
 		console.log("Modes: ", modes);
 		console.log("Dimensions: ", dims);
+		console.log("Placements: ", placements);
 	});
 
 	$("#room .speaker, #room #listener").on("click", function(){
@@ -101,8 +116,8 @@ $(document).ready(function(){
 		$(this).children(".inputs").show();
 	});
 
-	$("#room input").on("change", function(e) {
-		speaker_pos = [];
+	$("#room input").on("change", function(e){
+		placements = [];
 
 		speaker_placement();
 	});
