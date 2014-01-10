@@ -68,7 +68,7 @@ function speaker_placement(){
 		if(id != "c" && id != "listener") {
 			x =  +($(this).find("#x").val()) || 24;
 		} else {
-			x = +($(this).find("#x").val()) || dims[0]/2;
+			x = +($(this).find("#x").val()) || dims[1]/2;
 		}
 			
 		z = $(this).attr("id") != "listener" ? +($(this).find("#z").val()) || 24 : +($(this).find("#z").val()) || dims[2]*.62;
@@ -102,25 +102,25 @@ function speaker_placement(){
 }
 
 function build_room(){
-	$("#room").show().css({width: dims[0]*scale, height:dims[2]*scale});
+	$("#room").show().css({width: dims[1]*scale, height:dims[2]*scale});
 
 	speaker_placement();
 }
 
 $(document).ready(function(){
 	$("#room_dimensions").on("click", function(e){
-		room_w = +($("#room_width").val());
 		room_h = +($("#room_height").val());
+		room_w = +($("#room_width").val());
 		room_l = +($("#room_length").val());
-		dims = [room_w,room_h,room_l];
+		dims = [room_h,room_w,room_l];
 
 		system = +($("#system").val());
 		room_modes();
 		build_room();
 
-		console.log("Modes: ", modes);
-		console.log("Dimensions: ", dims);
-		console.log("Placements: ", placements);
+		console.log("Modes (h,w,l): ", modes);
+		console.log("Dimensions (h,w,l): ", dims);
+		console.log("Placements (x,z,reflection): ", placements);
 	});
 
 	$("#room").on("click", ".placement, .reflection", function(){
