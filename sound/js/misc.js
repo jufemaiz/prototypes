@@ -1,4 +1,4 @@
-var dims = [], speaker_pos = [], scale = 3, room_w, room_h, room_l, system;
+var dims = [], modes = [], speaker_pos = [], scale = 3, room_w, room_h, room_l, system;
 
 function intersection(array1, array2) {
 	return array1.filter(function (n) { return array2.indexOf(n) !== -1; });
@@ -38,7 +38,7 @@ function room_modes() {
 	$("#axial_resonance_height").text("");
 	$("#axial_resonance_length").text("");
 
-	var modes = [];
+	modes = [];
 	$.each(dims, function (wall, inches) {
 		first_mode = 1130 / (2 * (inches / 12));
 		hz = first_mode;
@@ -61,20 +61,18 @@ function room_modes() {
 function speaker_placement(){
 	$(".reflection").remove();
 
-	var listener_x = $("#listener #x").val();
-	var listener_z = $("#listener #z").val();
+	var listener_x = +($("#listener #x").val());
+	var listener_z = +($("#listener #z").val());
 
-	var fl_x = $("#fl #x").val();
-	var fl_z = $("#fl #z").val();
+	var fl_x = +($("#fl #x").val());
+	var fl_z = +($("#fl #z").val());
 
 	$("#listener").css({left: listener_x*scale, top: listener_z*scale});
 	$("#fl").css({left: fl_x*scale, top: fl_z*scale});
 
-	fl = (((parseInt(listener_z)-parseInt(fl_z)) * parseInt(listener_x))/(parseInt(fl_x)+parseInt(listener_x)));
+	fl = (((listener_z - fl_z) * listener_x) / (fl_x + listener_x));
 
-	$('<div id="fl_r" class="reflection"></div>').appendTo("#room").css({top: ((parseInt(listener_z)-parseInt(fl)))*scale});
-
-	console.log(fl);
+	$('<div id="fl_r" class="reflection"></div>').appendTo("#room").css({top: ((listener_z - fl))*scale});
 }
 
 function build_room() {
@@ -85,14 +83,17 @@ function build_room() {
 
 $(document).ready(function(){
 	$("#room_dimensions").on("click", function(e) {
-		room_w = $("#room_width").val();
-		room_h = $("#room_height").val();
-		room_l = $("#room_length").val();
+		room_w = +($("#room_width").val());
+		room_h = +($("#room_height").val());
+		room_l = +($("#room_length").val());
 		dims = [room_w,room_h,room_l];
 
-		system = $("#system").val() || 7;
+		system = +($("#system").val());
 		room_modes();
 		build_room();
+
+		console.log("Modes: ", modes);
+		console.log("Dimensions: ", dims);
 	});
 
 	$("#room .speaker, #room #listener").on("click", function(){
