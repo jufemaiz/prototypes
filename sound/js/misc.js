@@ -63,27 +63,37 @@ function speaker_placement(){
 
 	placements = [];
 	$(".placement").each(function(i,point){
-		var pos = [+($(this).find("#x").val()), +($(this).find("#z").val())];
+		id = $(this).attr("id");
+
+		if(id != "c" && id != "listener") {
+			x =  +($(this).find("#x").val()) || 24;
+		} else {
+			x = +($(this).find("#x").val()) || dims[0]/2;
+		}
+			
+		z = $(this).attr("id") != "listener" ? +($(this).find("#z").val()) || 24 : +($(this).find("#z").val()) || dims[2]*.62;
+
+		var pos = [x, z];
 		placements.push(pos);
 	});
 
 	$.each(placements, function(i){
-		ref = $(".placement:eq("+i+")").attr("id");
-		wall = $("#"+ref).hasClass("left") ? "left" : "right";
+		id = $(".placement:eq("+i+")").attr("id");
+		wall = $("#"+id).hasClass("left") ? "left" : "right";
 
 		$.each(placements[i], function(){
-			$("#"+ref).css(wall,placements[i][0]*scale).css("top", placements[i][1]*scale);
+			$("#"+id).css(wall,placements[i][0]*scale).css("top", placements[i][1]*scale);
 		});
 
 		var pos = i > 0 ? ((placements[0][1] - placements[i][1]) * placements[0][0]) / (placements[i][0] + placements[0][0]) : 0;
 		placements[i].push(pos);
 
-		if(ref != "listener"){
-			$('<div id="'+ref+'_ref" class="reflection"></div>').appendTo("#room").css("top", ((placements[0][1] - placements[i][2]))*scale).css(wall,"0");
+		if(id != "listener"){
+			$('<div id="'+id+'_ref" class="reflection"><div class="inputs"><input type="text" disabled value="'+(placements[0][1] - placements[i][2])+'" /></div></div>').appendTo("#room").css("top", (placements[0][1] - placements[i][2])*scale).css(wall,"0");
 		}
 
-		if(ref == "c") {
-			$('<div id="'+ref+'_ref" class="reflection"></div>').appendTo("#room").css("top", ((placements[0][1] - placements[i][2]))*scale).css(wall,"calc(100% - 10px)");
+		if(id == "c") {
+			$('<div id="'+id+'_ref" class="reflection"><div class="inputs"><input type="text" disabled value="'+(placements[0][1] - placements[i][2])+'" /></div></div>').appendTo("#room").css("top", (placements[0][1] - placements[i][2])*scale).css(wall,"calc(100% - 10px)");
 		}
 	});
 
@@ -111,8 +121,8 @@ $(document).ready(function(){
 		console.log("Placements: ", placements);
 	});
 
-	$("#room .speaker, #room #listener").on("click", function(){
-		$("#room .speaker, #room #listener").not(this).children(".inputs").hide();
+	$("#room").on("click", ".placement, .reflection", function(){
+		$("#room .placement, #room .reflection").not(this).children(".inputs").hide();
 		$(this).children(".inputs").show();
 	});
 
